@@ -1,13 +1,22 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react'
 import Link from "next/link"
 
 function Header() {
 
   // Handle light modes
-  const [darkMode, setDarkMode] = useState(false)
+  const [darkMode, setDarkMode] = useState(-1)
 
   useEffect(() => {
-    localStorage.setItem('dark-mode', darkMode);
+    const currentDisplayMode = JSON.parse(localStorage.getItem('dark-mode'))
+    setDarkMode(currentDisplayMode ?? false)
+  }, [])
+
+  useEffect(() => {
+    if (darkMode === -1) {
+      return
+    }
+
+    localStorage.setItem('dark-mode', JSON.stringify(darkMode));
     if (darkMode) {
       document.documentElement.classList.add('dark');
     } else {
