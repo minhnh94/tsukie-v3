@@ -1,7 +1,7 @@
 import Home from '@/pages/home';
-import Post from '@/pages/Post';
-import About from '@/pages/About';
-import Subscribe from '@/pages/Subscribe';
+import Post from '@/pages/post';
+import About from '@/pages/about';
+import Subscribe from '@/pages/subscribe';
 function App() {
 
   return (
