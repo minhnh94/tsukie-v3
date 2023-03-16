@@ -1,7 +1,14 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=PT+Mono&display=fallback');
+
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "additional-styles/typography.css";
+@import "tailwindcss/utilities";
+@import "additional-styles/utility-patterns.css";
+@import "additional-styles/custom-fonts.css";
+@import "additional-styles/range-slider.css";
+@import "additional-styles/toggle-switch.css";
+@import "additional-styles/theme.css";
 
 /* Additional Tailwind directives: https://tailwindcss.com/docs/functions-and-directives/#responsive */
 @layer utilities {

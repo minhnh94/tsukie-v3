@@ -1,0 +1,53 @@
+@layer components {
+	.react_markdown h3 {
+		@apply h3 font-aspekta text-slate-800 dark:text-slate-100
+	}
+
+	.react_markdown h2 {
+		@apply h2 font-aspekta text-slate-800 dark:text-slate-100
+	}
+
+	.react_markdown p strong {
+		@apply font-medium text-slate-800 dark:text-slate-100
+	}
+
+	.react_markdown blockquote {
+		@apply italic pl-4 border-l-2 border-teal-500 dark:border-gray-400 mb-8
+	}
+
+	.react_markdown ul, ol {
+		@apply list-disc list-inside space-y-2
+	}
+
+	.react_markdown li p {
+		@apply inline
+	}
+
+	.react_markdown a {
+		@apply font-medium text-sky-500 hover:underline
+	}
+
+	.react_markdown figure {
+		@apply mb-8
+	}
+
+	.react_markdown img {
+		@apply w-full
+	}
+
+	.react_markdown figcaption {
+		@apply text-sm text-center text-gray-400 mt-3 italic
+	}
+
+	.react_markdown pre {
+		@apply overflow-x-auto text-sm text-slate-500 bg-slate-800 p-4 rounded leading-tight
+	}
+
+	.react_markdown code {
+		@apply font-pt-mono
+	}
+
+	.react_markdown p > code, h3 > code {
+		@apply text-sky-300
+	}
+}
