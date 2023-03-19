@@ -24,6 +24,7 @@ function SideNavigation() {
           <nav className="w-full">
             <ul className="space-y-4">
               <li className="py-2">
+                {/* TODO: fix here or highlight doesn't work when viewing a blogpost */}
                 <Link
                   href="/"
                   className={ `w-full h-6 flex items-center justify-center relative after:absolute after:w-0.5 after:right-0 after:top-0 after:bottom-0 ${

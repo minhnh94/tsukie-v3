@@ -48,6 +48,7 @@ function ArticlesList({ items }) {
               key={ item.id }
               id={ item.id }
               title={ item.title }
+              tag={ item.tags[0].name }
               slug={ item.slug }
               image={ item.thumbnail }
               date={ item.date }

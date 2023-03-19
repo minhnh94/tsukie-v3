@@ -10,7 +10,7 @@ function WidgetPosts() {
           <span className="text-sky-500 mr-2">—</span>{' '}
           <Link
             className="font-aspekta font-[650] text-sm inline-flex relative hover:text-sky-500 duration-150 ease-out before:scale-x-0 before:origin-center before:absolute before:inset-0 before:bg-sky-200 dark:before:bg-sky-500 before:opacity-30 before:-z-10 before:translate-y-1/4 before:-rotate-2 hover:before:scale-100 before:duration-150 before:ease-in-out"
-            href="/[post]"
+            href="/en/[tag]/[post]"
           >
             Writing My First Security Blogpost
           </Link>
@@ -19,7 +19,7 @@ function WidgetPosts() {
           <span className="text-sky-500 mr-2">—</span>{' '}
           <Link
             className="font-aspekta font-[650] text-sm inline-flex relative hover:text-sky-500 duration-150 ease-out before:scale-x-0 before:origin-center before:absolute before:inset-0 before:bg-sky-200 dark:before:bg-sky-500 before:opacity-30 before:-z-10 before:translate-y-1/4 before:-rotate-2 hover:before:scale-100 before:duration-150 before:ease-in-out"
-            href="/[post]"
+            href="/en/[tag]/[post]"
           >
             JavaScript print Events
           </Link>
@@ -28,7 +28,7 @@ function WidgetPosts() {
           <span className="text-sky-500 mr-2">—</span>{' '}
           <Link
             className="font-aspekta font-[650] text-sm inline-flex relative hover:text-sky-500 duration-150 ease-out before:scale-x-0 before:origin-center before:absolute before:inset-0 before:bg-sky-200 dark:before:bg-sky-500 before:opacity-30 before:-z-10 before:translate-y-1/4 before:-rotate-2 hover:before:scale-100 before:duration-150 before:ease-in-out"
-            href="/[post]"
+            href="/en/[tag]/[post]"
           >
             How to Prototype with JavaScript
           </Link>
@@ -37,7 +37,7 @@ function WidgetPosts() {
           <span className="text-sky-500 mr-2">—</span>{' '}
           <Link
             className="font-aspekta font-[650] text-sm inline-flex relative hover:text-sky-500 duration-150 ease-out before:scale-x-0 before:origin-center before:absolute before:inset-0 before:bg-sky-200 dark:before:bg-sky-500 before:opacity-30 before:-z-10 before:translate-y-1/4 before:-rotate-2 hover:before:scale-100 before:duration-150 before:ease-in-out"
-            href="/[post]"
+            href="/en/[tag]/[post]"
           >
             Fuzzy Logic in a Hurry
           </Link>
@@ -46,7 +46,7 @@ function WidgetPosts() {
           <span className="text-sky-500 mr-2">—</span>{' '}
           <Link
             className="font-aspekta font-[650] text-sm inline-flex relative hover:text-sky-500 duration-150 ease-out before:scale-x-0 before:origin-center before:absolute before:inset-0 before:bg-sky-200 dark:before:bg-sky-500 before:opacity-30 before:-z-10 before:translate-y-1/4 before:-rotate-2 hover:before:scale-100 before:duration-150 before:ease-in-out"
-            href="/[post]"
+            href="/en/[tag]/[post]"
           >
             An Interactive Guide to Flexbox
           </Link>

@@ -1,4 +1,8 @@
 @layer components {
+	.react_markdown {
+		@apply space-y-4
+	}
+
 	.react_markdown h3 {
 		@apply h3 font-aspekta text-slate-800 dark:text-slate-100
 	}

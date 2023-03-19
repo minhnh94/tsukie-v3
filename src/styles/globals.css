@@ -1,10 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=PT+Mono&display=fallback');
 
 @import "tailwindcss/base";
+
+/* Order matters here. typography.css extends tailwind components so it has to be imported RIGHT AFTER components */
 @import "tailwindcss/components";
 @import "additional-styles/typography.css";
+/* Likewise for utility-patterns */
 @import "tailwindcss/utilities";
 @import "additional-styles/utility-patterns.css";
+
 @import "additional-styles/custom-fonts.css";
 @import "additional-styles/range-slider.css";
 @import "additional-styles/toggle-switch.css";
