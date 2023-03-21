@@ -9,11 +9,15 @@ function ArticlesList({ items, tags }) {
     setSelectedTagIndex(index)
   }
 
+  const filteredItems = items.filter((item) => {
+      return item.tag === tags[selectedTagIndex]
+  })
+
   return (
     <section>
       <h2 className="font-aspekta text-xl font-[650] mb-3">Latest Articles</h2>
 
-      {/* Filters */ }
+      {/* Filters */}
       <ul className="flex flex-wrap text-sm border-b border-slate-100 dark:border-slate-800">
         { tags.map((tag, index) => (
           <li key={ index } className="px-3 -mb-px">
@@ -31,9 +35,9 @@ function ArticlesList({ items, tags }) {
         )) }
       </ul>
 
-      {/* Articles list */ }
+      {/* Articles list */}
       <div>
-        { items.map((item) => {
+        { filteredItems.map((item) => {
           return (
             <ArticleItem
               key={ item.id }
