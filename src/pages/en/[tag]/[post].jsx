@@ -153,7 +153,7 @@ export async function getStaticProps({ params: { post } }) {
 export async function getStaticPaths() {
   const { pages } = await getPagesFromDB()
   const allPaths = pages.map(page => ({
-    params: { tag: page.tags[0].name, post: page.slug },
+    params: { tag: page.tag, post: page.slug },
   }))
   return {
     paths: allPaths,

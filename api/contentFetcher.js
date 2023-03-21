@@ -156,7 +156,7 @@ export const getPageIdBySlug = async (slug) => {
 
 // Get two articles with the same tag and with the most views, for now
 export const getSuggestedArticlesForPage = async (pageProperties) => {
-  const { pages } = await getPagesFromDB(null, null, pageProperties.tags[0].name)
+  const { pages } = await getPagesFromDB(null, null, pageProperties.tag)
   pages.sort((page1, page2) => page1.readCount - page2.readCount)
   return pages.slice(0, 2)
 }
@@ -181,10 +181,10 @@ const convertPagePropertiesToConsumable = (id, pageProperties) => {
     title: pageProperties.name.title[0].plain_text,
     thumbnail: pageProperties.thumbnail.files[0].file.url,
     ready: pageProperties.ready.checkbox,
-    tags: pageProperties.tags.multi_select.map((tag) => ({
+    tag: pageProperties.tags.multi_select.map((tag) => ({
       name: tag.name,
       color: tag.color,
-    })),
+    }))[0].name,
     slug: pageProperties.slug.formula.string,
     summary: pageProperties.summary.rich_text[0].plain_text,
     date: dayjs(pageProperties.date.date.start).format("MMM DD, YYYY"),

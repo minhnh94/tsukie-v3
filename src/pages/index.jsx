@@ -12,7 +12,7 @@ import WidgetBook from '../partials/WidgetBook'
 import Footer from '../partials/Footer'
 import { getPagesFromDB } from "../../api/contentFetcher"
 
-function Index({ items }) {
+function Index({ items, tags }) {
   return (
     <div className="max-w-7xl mx-auto">
       <div className="min-h-screen flex">
@@ -34,7 +34,7 @@ function Index({ items }) {
                 <div className="max-w-[700px]">
                   <div className="space-y-10">
 
-                    <ArticlesList items={ items }/>
+                    <ArticlesList items={ items } tags={ tags }/>
                     <Talks/>
                     <Projects/>
 
@@ -68,9 +68,24 @@ function Index({ items }) {
 export async function getStaticProps() {
   const pageInfo = await getPagesFromDB()
   const items = pageInfo.pages
+  const tags = Object.keys(separateByTags(items))
   return {
-    props: { items },
+    props: { items, tags },
   }
+}
+
+const separateByTags = (data) => {
+  const result = {}
+
+  data.forEach((item) => {
+    const tag = item.tag
+    if (!result[tag]) {
+      result[tag] = []
+    }
+    result[tag].push(item)
+  })
+
+  return result
 }
 
 export default Index
