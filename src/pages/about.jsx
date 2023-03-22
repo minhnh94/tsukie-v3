@@ -6,8 +6,6 @@ import WidgetNewsletter from '../partials/WidgetNewsletter';
 import WidgetSponsor from '../partials/WidgetSponsor';
 import Footer from '../partials/Footer';
 
-import AboutImg from '../images/about.png';
-
 function About() {
   return (
     <div className="max-w-7xl mx-auto">
@@ -31,7 +29,7 @@ function About() {
                   <section>
                     { /* Page title */ }
                     <h1 className="h1 font-aspekta mb-5">Hi. I'm Mark <span className="inline-flex relative text-sky-500 before:absolute before:inset-0 before:bg-sky-200 dark:before:bg-sky-500 before:opacity-30 before:-z-10 before:-rotate-2 before:translate-y-1/4">@mrk27</span> Ivings 🤟</h1>
-                    <img className="w-full" src={AboutImg} width="692" height="390" alt="About" />
+                    <img className="w-full" src="/images/about.png" width="692" height="390" alt="About" />
                     { /* Page content */ }
                     <div className="text-slate-500 dark:text-slate-400 space-y-8">
                       <div className="space-y-4">

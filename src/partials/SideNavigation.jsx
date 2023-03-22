@@ -1,7 +1,6 @@
 import React from 'react'
 import Link from "next/link"
 
-import image from '../images/me.jpg'
 import { useRouter } from "next/router"
 
 function SideNavigation() {
@@ -15,7 +14,7 @@ function SideNavigation() {
           { pathname !== '/' && (
             <div className="flex justify-center my-4">
               <Link href="/">
-                <img className="rounded-full" src="/images/me.jpg" width="32" height="32" alt="Me"/>
+                <img className="rounded-full" src="/images/logo.png" width="32" height="32" alt="Me"/>
               </Link>
             </div>
           ) }
