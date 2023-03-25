@@ -16,9 +16,7 @@ function Talks() {
         >
           <img
             className="absolute inset-0 w-full h-full object-cover opacity-40"
-            src={Talk01}
-            width="336"
-            height="189"
+            src="../images/popular-post-01.jpg"
             alt="Popular post 01"
           />
           <div className="h-full relative flex flex-col items-start justify-between before:mt-auto before:flex-1 p-5">
