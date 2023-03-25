@@ -35,7 +35,6 @@ function Index({ items, tags }) {
                   <div className="space-y-10">
 
                     <ArticlesList items={ items } tags={ tags }/>
-                    <Talks/>
                     <Projects/>
 
                   </div>

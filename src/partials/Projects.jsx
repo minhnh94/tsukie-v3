@@ -13,6 +13,7 @@ function Projects() {
           pjDesc="The best sticky calendar on desktop background for macOS"
           pjImg="https://wallcal.app/my-assets/app-icon.png"
           pjLink="https://wallcal.app/"
+          bgImg="wallcal-screenshot.webp"
         />
         <ProjectCard
           pjName="Coming soon..."
