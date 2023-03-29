@@ -3,16 +3,16 @@ import Image from "next/image"
 
 export function ProjectCard({ pjName, pjDesc, pjImg, pjLink, bgImg }) {
   return <a
-    className="rounded-lg border border-slate-200 dark:border-slate-800 bg-gradient-to-tr from-slate-800 to-slate-700 dark:bg-gradient-to-t dark:from-slate-800 dark:to-slate-800/30 odd:-rotate-1 even:rotate-1 hover:rotate-0 transition-transform duration-700 hover:duration-100 ease-in-out p-5 overflow-hidden relative"
+    className={ `rounded-lg border border-slate-200 dark:border-slate-800 dark:bg-gradient-to-t dark:from-slate-800 dark:to-slate-800/30 odd:-rotate-1 even:rotate-1 hover:rotate-0 transition-transform duration-700 hover:duration-100 ease-in-out p-5 overflow-hidden relative ${ bgImg ? 'bg-gradient-to-tr from-slate-800 to-slate-700' : '' }` }
     href={ pjLink }
     target="_blank"
     rel="nofollow noopener noreferrer"
   >
     { bgImg && <Image
       className="absolute inset-0 w-full h-full object-cover opacity-40"
-      src={`/images/${bgImg}`}
+      src={ `/images/${ bgImg }` }
       alt="Popular post 01"
-      fill={true}
+      fill={ true }
     /> }
     <div className="flex flex-col h-full relative">
       <div className="grow">
@@ -31,8 +31,8 @@ export function ProjectCard({ pjName, pjDesc, pjImg, pjLink, bgImg }) {
               />
             </svg>
           </div> }
-        <div className="text-lg text-white font-aspekta font-[650] mb-1">{ pjName }</div>
-        <p className="text-sm text-white mb-2">{ pjDesc }</p>
+        <div className={ `text-lg font-aspekta font-[650] mb-1 ${ bgImg ? 'text-white' : '' }` }>{ pjName }</div>
+        <p className={ `text-sm mb-2 ${ bgImg ? 'text-white' : 'text-slate-500 dark:text-slate-400' }` }>{ pjDesc }</p>
       </div>
       <div className="text-sky-500 flex justify-end">
         <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="14" height="12">

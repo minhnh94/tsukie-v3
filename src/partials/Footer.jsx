@@ -10,7 +10,9 @@ function Footer() {
             <li>
               <a
                 className="flex justify-center items-center text-sky-500 hover:text-sky-600 transition duration-150 ease-in-out"
-                href="#0"
+                href="https://twitter.com/minhnh94"
+                rel="nofollow noopener noreferrer"
+                target="_blank"
                 aria-label="Twitter"
               >
                 <svg className="w-8 h-8 fill-current" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
@@ -21,18 +23,9 @@ function Footer() {
             <li>
               <a
                 className="flex justify-center items-center text-sky-500 hover:text-sky-600 transition duration-150 ease-in-out"
-                href="#0"
-                aria-label="YouTube"
-              >
-                <svg className="w-8 h-8 fill-current" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M23.8 12.8c-.2-1.3-.8-2.2-2.2-2.4C19.4 10 16 10 16 10s-3.4 0-5.6.4c-1.4.2-2.1 1.1-2.2 2.4C8 14.1 8 16 8 16s0 1.9.2 3.2c.2 1.3.8 2.2 2.2 2.4 2.2.4 5.6.4 5.6.4s3.4 0 5.6-.4c1.4-.3 2-1.1 2.2-2.4.2-1.3.2-3.2.2-3.2s0-1.9-.2-3.2ZM14 19v-6l5 3-5 3Z" />
-                </svg>
-              </a>
-            </li>
-            <li>
-              <a
-                className="flex justify-center items-center text-sky-500 hover:text-sky-600 transition duration-150 ease-in-out"
-                href="#0"
+                href="https://github.com/minhnh94"
+                rel="nofollow noopener noreferrer"
+                target="_blank"
                 aria-label="Github"
               >
                 <svg className="w-8 h-8 fill-current" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
@@ -43,7 +36,9 @@ function Footer() {
             <li>
               <a
                 className="flex justify-center items-center text-sky-500 hover:text-sky-600 transition duration-150 ease-in-out"
-                href="#0"
+                href="mailto:tsukie.studio@gmail.com"
+                rel="nofollow noopener noreferrer"
+                target="_blank"
                 aria-label="Telegram"
               >
                 <svg className="w-8 h-8 fill-current" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
@@ -54,7 +49,7 @@ function Footer() {
           </ul>
 
           {/* Copyright */}
-          <div className="text-sm text-slate-500 dark:text-slate-400">Copyright © Cruip. All rights reserved.</div>
+          <div className="text-sm text-slate-500 dark:text-slate-400">Copyright © tsukie. All rights reserved.</div>
         </div>
       </div>
     </footer>

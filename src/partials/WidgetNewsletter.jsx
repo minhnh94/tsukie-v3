@@ -13,48 +13,21 @@ function WidgetNewsletter() {
 
   return (
     <div className="rounded-lg border border-slate-200 dark:border-slate-800 dark:bg-gradient-to-t dark:from-slate-800 dark:to-slate-800/30 odd:rotate-1 even:-rotate-1 p-5">
-      <div className="text-center mb-1">
-        <div className="inline-flex -space-x-3 -ml-0.5">
-          <img
-            className="rounded-full border-2 border-white dark:border-slate-800 box-content"
-            src={ Avatar01 }
-            width="24"
-            height="24"
-            alt="Avatar 01"
-          />
-          <img
-            className="rounded-full border-2 border-white dark:border-slate-800 box-content"
-            src={ Avatar02 }
-            width="24"
-            height="24"
-            alt="Avatar 02"
-          />
-          <img
-            className="rounded-full border-2 border-white dark:border-slate-800 box-content"
-            src={ Avatar03 }
-            width="24"
-            height="24"
-            alt="Avatar 03"
-          />
-          <img
-            className="rounded-full border-2 border-white dark:border-slate-800 box-content"
-            src={ Avatar04 }
-            width="24"
-            height="24"
-            alt="Avatar 04"
-          />
-          <img
-            className="rounded-full border-2 border-white dark:border-slate-800 box-content"
-            src={ Avatar05 }
-            width="24"
-            height="24"
-            alt="Avatar 05"
-          />
-        </div>
-      </div>
+      {/* People who subscribed component - reserved for later */}
+      {/*<div className="text-center mb-1">*/}
+      {/*  <div className="inline-flex -space-x-3 -ml-0.5">*/}
+      {/*    <img*/}
+      {/*      className="rounded-full border-2 border-white dark:border-slate-800 box-content"*/}
+      {/*      src={ Avatar01 }*/}
+      {/*      width="24"*/}
+      {/*      height="24"*/}
+      {/*      alt="Avatar 01"*/}
+      {/*    />*/}
+      {/*  </div>*/}
+      {/*</div>*/}
       <div className="text-center mb-8">
-        <div className="font-aspekta font-[650] mb-1">Never miss an update!</div>
-        <p className="text-sm text-slate-500 dark:text-slate-400">Subscribe and join 100K+ developers.</p>
+        <div className="font-aspekta font-[650] mb-1">Discover the coder's life balance!</div>
+        <p className="text-sm text-slate-500 dark:text-slate-400">Subscribe for insights on coding, life experiences, and my indie journey.</p>
       </div>
       <form onSubmit={ handleSubmit }>
         <div className="mb-2">
