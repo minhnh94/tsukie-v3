@@ -14,6 +14,7 @@ import highlightjsCSS from 'highlight.js/styles/github-dark-dimmed.css'
 import readingTime from "reading-time"
 import ReactMarkdown from "react-markdown"
 import { getPageContentAsMarkdownById, getPageIdBySlug, getPagePropertiesById, getPagesFromDB, getSuggestedArticlesForPage } from "../../../../api/contentFetcher"
+import { CustomLink } from "@/partials/CustomLink"
 
 function Post({ content, pageProperties, suggestedArticles, readingStats }) {
   return (
@@ -123,14 +124,6 @@ function Post({ content, pageProperties, suggestedArticles, readingStats }) {
       </div>
     </div>
   )
-}
-
-const CustomLink = ({ href, children, node, ...props }) => {
-  if (href.includes("http") && !href.includes("tsukie")) {
-    return <a href={ href } target="_blank" rel="nofollow noopener noreferrer" { ...props }>{ children.join(" ") }</a>
-  } else {
-    return <a href={ href } { ...props }>{ children.join(" ") }</a>
-  }
 }
 
 export async function getStaticProps({ params: { post } }) {
