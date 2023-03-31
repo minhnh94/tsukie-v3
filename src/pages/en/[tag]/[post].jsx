@@ -13,10 +13,10 @@ import rehypeHighlight from "rehype-highlight"
 import highlightjsCSS from 'highlight.js/styles/github-dark-dimmed.css'
 import readingTime from "reading-time"
 import ReactMarkdown from "react-markdown"
-import { getPageContentAsMarkdownById, getPageIdBySlug, getPagePropertiesById, getPagesFromDB, getSuggestedArticlesForPage } from "../../../../api/contentFetcher"
+import { getPageContentAsMarkdownById, getPageIdBySlug, getPagePropertiesById, getPagesForSidebar, getPagesFromDB, getSuggestedArticlesForPage } from "../../../../api/contentFetcher"
 import { CustomLink } from "@/partials/CustomLink"
 
-function Post({ content, pageProperties, suggestedArticles, readingStats }) {
+function Post({ content, pageProperties, pagesForSidebar, readingStats }) {
   return (
     <div className="max-w-7xl mx-auto">
       <div className="min-h-screen flex">
@@ -114,7 +114,7 @@ function Post({ content, pageProperties, suggestedArticles, readingStats }) {
                   <WidgetNewsletter/>
                   <WidgetSponsor imageRotationClass="-rotate-1" title="My latest project" pjName="WallCal" img="/images/wallcal-screenshot.webp"
                                  pjDesc="The best sticky calendar on desktop background for macOS" link="https://wallcal.app/"/>
-                  <WidgetPosts/>
+                  <WidgetPosts suggestedPosts={ pagesForSidebar }/>
                 </div>
               </aside>
             </div>
@@ -132,13 +132,13 @@ export async function getStaticProps({ params: { post } }) {
   const mdString = await getPageContentAsMarkdownById(pageId)
   const readingStats = readingTime(mdString)
   const pageProperties = await getPagePropertiesById(pageId)
-  const suggestedArticles = await getSuggestedArticlesForPage(pageProperties)
+  const { pagesForSidebar } = await getPagesForSidebar()
   return {
     props: {
       content: mdString,
       pageProperties,
-      suggestedArticles,
       readingStats,
+      pagesForSidebar,
     },
     revalidate: 43200,
   }
