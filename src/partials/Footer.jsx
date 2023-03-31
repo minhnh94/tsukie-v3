@@ -49,7 +49,7 @@ function Footer() {
           </ul>
 
           {/* Copyright */}
-          <div className="text-sm text-slate-500 dark:text-slate-400">Copyright © tsukie. All rights reserved.</div>
+          <div className="text-sm text-slate-500 dark:text-slate-400">Copyright © Minh Hoang Nguyen@tsukie. All rights reserved.</div>
         </div>
       </div>
     </footer>
