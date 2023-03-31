@@ -1,15 +1,14 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { CheckCircleIcon } from "@heroicons/react/20/solid"
 import useSubscribe from "../../hooks/useSubscribe"
 
 import SideNavigation from '../partials/SideNavigation'
 import Header from '../partials/Header'
 import WidgetSponsor from '../partials/WidgetSponsor'
-import WidgetBook from '../partials/WidgetBook'
 import Footer from '../partials/Footer'
 
 function Subscribe() {
-  const { email, setEmail, isLoading, isSubscribed, handleSubmit } = useSubscribe();
+  const { email, setEmail, isLoading, isSubscribed, handleSubmit } = useSubscribe()
 
   return (
     <div className="max-w-7xl mx-auto">
@@ -29,12 +28,11 @@ function Subscribe() {
                   <div className="space-y-10">
                     <section>
                       {/* Page title */ }
-                      <h1 className="h1 font-aspekta mb-5">Never miss an update ✨</h1>
+                      <h1 className="h1 font-aspekta mb-5">No spams. Just quality updates ✨</h1>
                       {/* Page content */ }
                       <div className="text-slate-500 dark:text-slate-400 space-y-8">
                         <p className="text-lg">
-                          This newsletter is written by Mark Ivings, who previously worked at Google, Medium, Vimeo, and Qonto. Here is what to expect
-                          by subscribing:
+                          Join me on a thrilling journey through coding, life lessons, and indie hacking adventures. Subscribe now for exclusive access to:
                         </p>
                         <ul className="space-y-4">
                           <li className="flex items-start">
@@ -45,7 +43,7 @@ function Subscribe() {
                             >
                               <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z"/>
                             </svg>
-                            <span>Big tech and high-growth startups, from the inside.</span>
+                            <span>Expert Coding Tips: Level up your programming skills with tried-and-tested techniques, industry best practices, and real-world examples.</span>
                           </li>
                           <li className="flex items-start">
                             <svg
@@ -55,7 +53,7 @@ function Subscribe() {
                             >
                               <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z"/>
                             </svg>
-                            <span>Actionable advice for engineering managers, software engineers and tech workers.</span>
+                            <span>Indie Hacker Insights: Learn the secrets to successfully building and launching profitable side projects, straight from my personal experiences.</span>
                           </li>
                           <li className="flex items-start">
                             <svg
@@ -65,7 +63,7 @@ function Subscribe() {
                             >
                               <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z"/>
                             </svg>
-                            <span>A pulse on the tech market and scoop worth knowing.</span>
+                            <span>Personal Growth Strategies: Discover practical life hacks and mindset shifts that will boost your productivity, focus, and overall well-being.</span>
                           </li>
                           <li className="flex items-start">
                             <svg
@@ -75,119 +73,42 @@ function Subscribe() {
                             >
                               <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z"/>
                             </svg>
-                            <span>An independent viewpoint.</span>
+                            <span>Engaging Community: Connect with a like-minded group of coders, entrepreneurs, and dreamers who are all on the same quest for growth and success.</span>
                           </li>
                         </ul>
+                        <p className="text-lg">Together, let's level up and dive into our exhilarating journey towards success!</p>
                         <div>
                           {/* Subscribe form */ }
-                          <form onSubmit={handleSubmit}>
+                          <form onSubmit={ handleSubmit }>
                             <div className="flex flex-col md:flex-row justify-center max-w-xs mx-auto md:max-w-md md:mx-0">
                               <input
                                 type="email"
                                 className="form-input w-full mb-2 md:mb-0 md:mr-2"
                                 placeholder="Your email"
                                 aria-label="Your email\u2026"
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
+                                value={ email }
+                                onChange={ (e) => setEmail(e.target.value) }
                                 required
-                                disabled={isSubscribed}
+                                disabled={ isSubscribed }
                               />
                               <button
-                                className={`btn text-white ${
+                                className={ `btn text-white ${
                                   isSubscribed ? 'bg-green-500' : 'bg-sky-500 hover:bg-sky-600'
-                                } ${isLoading || isSubscribed ? 'cursor-not-allowed' : ''}`}
+                                } ${ isLoading || isSubscribed ? 'cursor-not-allowed' : '' }` }
                                 type="submit"
-                                disabled={isLoading || isSubscribed}
+                                disabled={ isLoading || isSubscribed }
                               >
-                                {isSubscribed ? (
-                                  <CheckCircleIcon className="w-5 h-5" />
+                                { isSubscribed ? (
+                                  <CheckCircleIcon className="w-5 h-5"/>
                                 ) : isLoading ? (
                                   'Subscribing...'
                                 ) : (
                                   'Subscribe'
-                                )}
+                                ) }
                               </button>
                             </div>
                           </form>
-                          <div className="flex items-center mt-5">
-                            <div className="inline-flex -space-x-3 -ml-0.5">
-                              <img
-                                className="rounded-full border-2 border-white dark:border-slate-800 box-content"
-                                src="/images/avatar-01.jpg"
-                                width="24"
-                                height="24"
-                                alt="Avatar 01"
-                              />
-                              <img
-                                className="rounded-full border-2 border-white dark:border-slate-800 box-content"
-                                src="/images/avatar-01.jpg"
-                                width="24"
-                                height="24"
-                                alt="Avatar 02"
-                              />
-                              <img
-                                className="rounded-full border-2 border-white dark:border-slate-800 box-content"
-                                src="/images/avatar-01.jpg"
-                                width="24"
-                                height="24"
-                                alt="Avatar 03"
-                              />
-                              <img
-                                className="rounded-full border-2 border-white dark:border-slate-800 box-content"
-                                src="/images/avatar-01.jpg"
-                                width="24"
-                                height="24"
-                                alt="Avatar 04"
-                              />
-                              <img
-                                className="rounded-full border-2 border-white dark:border-slate-800 box-content"
-                                src="/images/avatar-01.jpg"
-                                width="24"
-                                height="24"
-                                alt="Avatar 05"
-                              />
-                            </div>
-                            <div className="text-sm text-slate-500 ml-3">Join 100K+ developers.</div>
-                          </div>
                         </div>
-                      </div>
-                    </section>
-
-                    <section>
-                      {/* Cards */ }
-                      <div className="grid sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 gap-5">
-                        <a
-                          className="rounded-lg border border-slate-200 dark:border-slate-800 dark:bg-gradient-to-t dark:from-slate-800 dark:to-slate-800/30 odd:-rotate-1 even:rotate-1 hover:rotate-0 transition-transform duration-700 hover:duration-100 ease-in-out p-5"
-                          href="#0"
-                        >
-                          <div className="flex flex-col h-full">
-                            <div className="grow">
-                              <img className="rounded-full mb-2" src="/images/testimonial-01.jpg" width="40" height="40" alt="Testimonial 01"/>
-                              <div className="text-lg font-aspekta font-[650] mb-1">“ Incredible Value “</div>
-                              <p className="text-sm text-slate-500 dark:text-slate-400 mb-2">
-                                I was able to quickly master the skills necessary to advance my career. I'm grateful for the resources Mark provided
-                                and would recommend him to anyone.
-                              </p>
-                            </div>
-                            <div className="text-xs font-aspekta font-[650] text-sky-500">— Mary Coyle</div>
-                          </div>
-                        </a>
-                        <a
-                          className="rounded-lg border border-slate-200 dark:border-slate-800 dark:bg-gradient-to-t dark:from-slate-800 dark:to-slate-800/30 odd:-rotate-1 even:rotate-1 hover:rotate-0 transition-transform duration-700 hover:duration-100 ease-in-out p-5"
-                          href="#0"
-                        >
-                          <div className="flex flex-col h-full">
-                            <div className="grow">
-                              <img className="rounded-full mb-2" src="/images/testimonial-01.jpg" width="40" height="40" alt="Testimonial 02"/>
-                              <div className="text-lg font-aspekta font-[650] mb-1">“ The Best Newsletter “</div>
-                              <p className="text-sm text-slate-500 dark:text-slate-400 mb-2">
-                                I was able to quickly master the skills necessary to advance my career. I'm grateful for the resources Mark provided
-                                and would recommend him to anyone.
-                              </p>
-                            </div>
-                            <div className="text-xs font-aspekta font-[650] text-sky-500">— Daniel Burka</div>
-                          </div>
-                        </a>
                       </div>
                     </section>
                   </div>
