@@ -59,7 +59,8 @@ function About({ content }) {
                 <div className="space-y-6">
 
                   <WidgetNewsletter/>
-                  <WidgetSponsor/>
+                  <WidgetSponsor imageRotationClass="-rotate-1" title="My latest project" pjName="WallCal" img="/images/wallcal-screenshot.webp"
+                                 pjDesc="The best sticky calendar on desktop background for macOS" link="https://wallcal.app/"/>
 
                 </div>
               </aside>

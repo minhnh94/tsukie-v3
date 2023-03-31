@@ -44,11 +44,9 @@ function Index({ items, tags }) {
               { /* Right sidebar */ }
               <aside className="md:w-[240px] lg:w-[300px] shrink-0">
                 <div className="space-y-6">
-
                   <WidgetNewsletter/>
-                  <WidgetSponsor/>
-                  <WidgetBook/>
-
+                  <WidgetSponsor imageRotationClass="-rotate-1" title="My latest project" pjName="WallCal" img="/images/wallcal-screenshot.webp"
+                                 pjDesc="The best sticky calendar on desktop background for macOS" link="https://wallcal.app/"/>
                 </div>
               </aside>
 
