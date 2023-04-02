@@ -11,10 +11,28 @@ import WidgetSponsor from '../partials/WidgetSponsor'
 import WidgetBook from '../partials/WidgetBook'
 import Footer from '../partials/Footer'
 import { getPagesFromDB } from "../../api/contentFetcher"
+import { NextSeo } from "next-seo"
 
 function Index({ items, tags }) {
   return (
     <div className="max-w-7xl mx-auto">
+      <NextSeo
+        title="Tsukie - coding x life x indie hacker journey"
+        description="Welcome to Tsukie, a blog where coding, life, and my indie hacker journey converge. As a seasoned software programmer, I'm now dabbling into the part-time indie hacker path and sharing my experiences along the way."
+        canonical="https://tsukie.com/"
+        twitter={ { site: '@minhnh94', handle: '@minhnh94', cardType: 'summary_large_image' } }
+        openGraph={ {
+          url: 'https://tsukie.com/',
+          type: 'website',
+          title: 'Tsukie - coding x life x indie hacker journey',
+          description: 'Welcome to Tsukie, a blog where coding, life, and my indie hacker journey converge. As a seasoned software programmer, I\'m now dabbling into the part-time indie hacker path and sharing my experiences along the way.',
+          images: [{
+            url: 'https://tsukie.com/images/about.jpg',
+            alt: 'about tsukie',
+          }],
+        } }
+      />
+
       <div className="min-h-screen flex">
 
         <SideNavigation/>

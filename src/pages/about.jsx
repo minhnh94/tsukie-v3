@@ -14,10 +14,28 @@ import rehypeHighlight from "rehype-highlight"
 import highlightjsCSS from 'highlight.js/styles/github-dark-dimmed.css'
 import { CustomLink } from "@/partials/CustomLink"
 import { Highlight } from "@/partials/Highlight"
+import { NextSeo } from "next-seo"
 
 function About({ content }) {
   return (
     <div className="max-w-7xl mx-auto">
+      <NextSeo
+        title="Tsukie - coding x life x indie hacker journey"
+        description="Welcome to Tsukie, a blog where coding, life, and my indie hacker journey converge. As a seasoned software programmer, I'm now dabbling into the part-time indie hacker path and sharing my experiences along the way."
+        canonical="https://tsukie.com/"
+        twitter={ { site: '@minhnh94', handle: '@minhnh94', cardType: 'summary_large_image' } }
+        openGraph={ {
+          url: 'https://tsukie.com/',
+          type: 'website',
+          title: 'Tsukie - coding x life x indie hacker journey',
+          description: 'Welcome to Tsukie, a blog where coding, life, and my indie hacker journey converge. As a seasoned software programmer, I\'m now dabbling into the part-time indie hacker path and sharing my experiences along the way.',
+          images: [{
+            url: 'https://tsukie.com/images/about.jpg',
+            alt: 'about tsukie',
+          }],
+        } }
+      />
+
       <div className="min-h-screen flex">
 
         <SideNavigation/>
@@ -38,7 +56,7 @@ function About({ content }) {
                   <section>
                     { /* Page title */ }
                     <h1 className="h1 font-aspekta mb-5"><Highlight>Tsukie</Highlight> - Coding x Indie 🤟</h1>
-                    <img className="w-full" src="/images/about.png" width="692" height="390" alt="About"/>
+                    <img className="w-full" src="/images/about.jpg" width="692" height="390" alt="About"/>
                     { /* Page content */ }
                     <div className="text-slate-500 dark:text-slate-400 space-y-8 my-4">
                       {/* react_markdown class defined in typography.css */ }

@@ -17,6 +17,7 @@ import readingTime from "reading-time"
 import ReactMarkdown from "react-markdown"
 import { getPageContentAsMarkdownById, getPageIdBySlug, getPagePropertiesById, getPagesForSidebar, getPagesFromDB, getSuggestedArticlesForPage } from "../../../../api/contentFetcher"
 import { CustomLink } from "@/partials/CustomLink"
+import { NextSeo } from "next-seo"
 
 function Post({ content, pageProperties, pagesForSidebar, readingStats }) {
   const router = useRouter()
@@ -25,6 +26,23 @@ function Post({ content, pageProperties, pagesForSidebar, readingStats }) {
 
   return (
     <div className="max-w-7xl mx-auto">
+      <NextSeo
+        title={ pageProperties.title }
+        description={ pageProperties.summary }
+        canonical={ currentPageURL }
+        twitter={ { site: '@minhnh94', handle: '@minhnh94', cardType: 'summary_large_image' } }
+        openGraph={ {
+          url: currentPageURL,
+          type: 'website',
+          title: pageProperties.title,
+          description: pageProperties.summary,
+          images: [{
+            url: pageProperties.thumbnail,
+            alt: pageProperties.title,
+          }],
+        } }
+      />
+
       <div className="min-h-screen flex">
         <SideNavigation/>
 

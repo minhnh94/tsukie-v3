@@ -6,12 +6,30 @@ import SideNavigation from '../partials/SideNavigation'
 import Header from '../partials/Header'
 import WidgetSponsor from '../partials/WidgetSponsor'
 import Footer from '../partials/Footer'
+import { NextSeo } from "next-seo"
 
 function Subscribe() {
   const { email, setEmail, isLoading, isSubscribed, handleSubmit } = useSubscribe()
 
   return (
     <div className="max-w-7xl mx-auto">
+      <NextSeo
+        title="Tsukie - coding x life x indie hacker journey"
+        description="Join me on a thrilling journey through coding, life lessons, and indie hacking adventures!"
+        canonical="https://tsukie.com/"
+        twitter={ { site: '@minhnh94', handle: '@minhnh94', cardType: 'summary_large_image' } }
+        openGraph={ {
+          url: 'https://tsukie.com/',
+          type: 'website',
+          title: 'Tsukie - coding x life x indie hacker journey',
+          description: 'Join me on a thrilling journey through coding, life lessons, and indie hacking adventures!',
+          images: [{
+            url: 'https://tsukie.com/images/about.jpg',
+            alt: 'about tsukie',
+          }],
+        } }
+      />
+
       <div className="min-h-screen flex">
         <SideNavigation/>
 
