@@ -12,10 +12,14 @@ import WidgetBook from '../partials/WidgetBook'
 import Footer from '../partials/Footer'
 import { getPagesFromDB } from "../../api/contentFetcher"
 import { NextSeo } from "next-seo"
+import Screen from "@/partials/Screen"
+import MainContent from "@/partials/MainContent"
+import MiddleArea from "@/partials/MiddleArea"
+import RightSidebar from "@/partials/RightSidebar"
 
 function Index({ items, tags }) {
   return (
-    <div className="max-w-7xl mx-auto">
+    <Screen>
       <NextSeo
         title="Tsukie - coding x life x indie hacker journey"
         description="Welcome to Tsukie, a blog where coding, life, and my indie hacker journey converge. As a seasoned software programmer, I'm now dabbling into the part-time indie hacker path and sharing my experiences along the way."
@@ -32,51 +36,27 @@ function Index({ items, tags }) {
           }],
         } }
       />
+      <SideNavigation/>
 
-      <div className="min-h-screen flex">
+      <MainContent>
+        <Hero/>
 
-        <SideNavigation/>
-
-        { /* Main content */ }
-        <main className="grow overflow-hidden px-6">
-          <div className="w-full h-full max-w-[1072px] mx-auto flex flex-col">
-
-            <Header/>
-            <Hero/>
-
-            { /* Content */ }
-            <div className="grow md:flex space-y-8 md:space-y-0 md:space-x-8 pb-16 md:pb-20">
-
-              { /* Middle area */ }
-              <div className="grow">
-                <div className="max-w-[700px]">
-                  <div className="space-y-10">
-
-                    <ArticlesList items={ items } tags={ tags }/>
-                    <Projects/>
-
-                  </div>
-                </div>
-              </div>
-
-              { /* Right sidebar */ }
-              <aside className="md:w-[240px] lg:w-[300px] shrink-0">
-                <div className="space-y-6">
-                  <WidgetNewsletter/>
-                  <WidgetSponsor imageRotationClass="-rotate-1" title="My latest project" pjName="WallCal" img="/images/wallcal-screenshot.webp"
-                                 pjDesc="The best sticky calendar on desktop background for macOS" link="https://wallcal.app/"/>
-                </div>
-              </aside>
-
+        <div className="grow md:flex space-y-8 md:space-y-0 md:space-x-8 pb-16 md:pb-20">
+          <MiddleArea>
+            <div className="space-y-10">
+              <ArticlesList items={ items } tags={ tags }/>
+              <Projects/>
             </div>
+          </MiddleArea>
 
-            <Footer/>
-
-          </div>
-        </main>
-
-      </div>
-    </div>
+          <RightSidebar>
+            <WidgetNewsletter/>
+            <WidgetSponsor imageRotationClass="-rotate-1" title="My latest project" pjName="WallCal" img="/images/wallcal-screenshot.webp"
+                           pjDesc="The best sticky calendar on desktop background for macOS" link="https://wallcal.app/"/>
+          </RightSidebar>
+        </div>
+      </MainContent>
+    </Screen>
   )
 }
 
