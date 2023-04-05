@@ -1,7 +1,5 @@
 import SideNavigation from '../partials/SideNavigation'
-import Header from '../partials/Header'
 import WidgetSponsor from '../partials/WidgetSponsor'
-import Footer from '../partials/Footer'
 import React from "react"
 import Screen from "@/partials/Screen"
 import MainContent from "@/partials/MainContent"
