@@ -66,6 +66,7 @@ export async function getStaticProps() {
   const tags = Object.keys(separateByTags(items))
   return {
     props: { items, tags },
+    revalidate: 43200,
   }
 }
 
