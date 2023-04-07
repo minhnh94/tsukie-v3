@@ -1,38 +1,17 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This is the source code for my blog [tsukie.com](https://tsukie.com/). Written in Next.js and hosted on Vercel. CMS is Notion. Theme by [cruip.com](https://cruip.com/).
 
-## Getting Started
+Also, you can find the previous implementations for my blog here. This is [the one written in Gatsby](https://github.com/minhnh94/tsukie-v2) and here is [the one written in Hexo](https://github.com/minhnh94/tsukie-src).
 
-First, run the development server:
+### Why did I rewrite my blog so many times?
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+The first time was with Hexo. This was kind of a dead tech, and customizing templates and data source getters on this was an absolute nightmare. After nearly 3 years of digging down this rabbit hole, I decided that I already had enough of this and started looking for alternatives.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The second time was with Gatsby. Working with trendy techs like React and GraphQL was cool at first. Eventually, the novelty wore off and I started hitting roadblocks again. Gatsby had quite a steep learning curve and lots of conventions I had to memorize. GraphQL kept adding complexities to what would rather be a very easy use case. In the end, I was kind of able to do everything I wanted to do with my blog, but the source code had already become a mess that was beyond curable severity.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+The third time, after hearing a lot from my fellow indie community and seeing many successful examples, I decided to take the plunge and rebuild my blog with Next.js. I dropped support for multiple languages as well because blogging in languages other than English was like shouting into the void. I took the lean approach, scoped the MVP, built it, and put it on the web.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+Compared to the above two techs, Next.js was so easy to learn, like just a few APIs were already enough to get started and become productive. I had complete autonomy on choosing how I wanted to organize resources or fetch data. No memorable roadblocks on the way, the whole development process was smooth sailing 👌. Deploying on Vercel was also brain-dead easy, just click a few buttons and it's done! Even a non-tech person could do that. Totally fell in love with Next.js just after a few coding sessions!
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+I think I have made my blog to the state where I want it to be, and from now on I'll concentrate more on actually writing articles. I have a lot of friends who enjoy coding their own blogs, only to leave them to settle in the dust later, and I don't want to walk that way 😅. With all the AI-assisted tools nowadays, writing actually becomes more engaging as well!
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Please feel free to use this repo as a starting point for your personal blog 🤗. I'll continue to push updates and improvements, so please stay tuned!
