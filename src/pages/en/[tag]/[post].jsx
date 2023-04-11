@@ -3,11 +3,9 @@ import Link from "next/link"
 import { useRouter } from "next/router"
 
 import SideNavigation from '../../../partials/SideNavigation'
-import Header from '../../../partials/Header'
 import WidgetNewsletter from '../../../partials/WidgetNewsletter'
 import WidgetSponsor from '../../../partials/WidgetSponsor'
 import WidgetPosts from '../../../partials/WidgetPosts'
-import Footer from '../../../partials/Footer'
 
 import rehypeRaw from "rehype-raw"
 import rehypeFigure from "rehype-figure"
@@ -22,11 +20,13 @@ import Screen from "@/partials/Screen"
 import MainContent from "@/partials/MainContent"
 import MiddleArea from "@/partials/MiddleArea"
 import RightSidebar from "@/partials/RightSidebar"
+import useClearData from "../../../../hooks/useClearData"
 
 function Post({ content, pageProperties, pagesForSidebar, readingStats }) {
+  useClearData()
+
   const router = useRouter()
   const currentPageURL = 'https://tsukie.com' + router.asPath
-
 
   return (
     <Screen>

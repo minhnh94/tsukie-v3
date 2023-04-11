@@ -179,7 +179,7 @@ const convertPagePropertiesToConsumable = (id, pageProperties) => {
   return {
     id,
     title: pageProperties.name.title[0].plain_text,
-    thumbnail: pageProperties.thumbnail.files[0].file.url,
+    thumbnail: pageProperties.thumbnail.files[0].external.url,
     ready: pageProperties.ready.checkbox,
     tag: pageProperties.tags.multi_select.map((tag) => ({
       name: tag.name,

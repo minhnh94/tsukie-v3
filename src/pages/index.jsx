@@ -1,23 +1,23 @@
 import React from 'react'
 
 import SideNavigation from '../partials/SideNavigation'
-import Header from '../partials/Header'
 import Hero from '../partials/Hero'
 import ArticlesList from '../partials/ArticlesList'
-import Talks from '../partials/Talks'
 import Projects from '../partials/Projects'
 import WidgetNewsletter from '../partials/WidgetNewsletter'
 import WidgetSponsor from '../partials/WidgetSponsor'
-import WidgetBook from '../partials/WidgetBook'
-import Footer from '../partials/Footer'
 import { getPagesFromDB } from "../../api/contentFetcher"
 import { NextSeo } from "next-seo"
 import Screen from "@/partials/Screen"
 import MainContent from "@/partials/MainContent"
 import MiddleArea from "@/partials/MiddleArea"
 import RightSidebar from "@/partials/RightSidebar"
+import useClearData from "../../hooks/useClearData"
 
 function Index({ items, tags }) {
+  // TODO: Will remove this after a week
+  useClearData()
+
   return (
     <Screen>
       <NextSeo

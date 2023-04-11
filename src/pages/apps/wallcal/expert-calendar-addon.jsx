@@ -4,8 +4,11 @@ import MiddleArea from "@/partials/MiddleArea"
 import RightSidebar from "@/partials/RightSidebar"
 import WidgetSponsor from "@/partials/WidgetSponsor"
 import Screen from "@/partials/Screen"
+import useClearData from "../../../../hooks/useClearData"
 
 function ExpertCalendarAddon() {
+  useClearData()
+
   return (
     <Screen>
       <SideNavigation/>
