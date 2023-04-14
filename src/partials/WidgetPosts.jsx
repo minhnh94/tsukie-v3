@@ -3,7 +3,7 @@ import Link from "next/link"
 
 function WidgetPosts({ suggestedPosts }) {
   return (
-    <div className="rounded-lg border border-slate-200 dark:border-slate-800 dark:bg-gradient-to-t dark:from-slate-800 dark:to-slate-800/30 odd:rotate-1 even:-rotate-1 p-5">
+    <div className="rounded-lg border border-slate-200 dark:border-slate-800 dark:bg-gradient-to-t dark:from-slate-800 dark:to-slate-800/30 odd:rotate-1 even:-rotate-1 p-5 sticky top-6">
       <div className="font-aspekta font-[650] mb-3">Popular Posts</div>
       <ul className="space-y-3">
         { suggestedPosts.map(post => (
