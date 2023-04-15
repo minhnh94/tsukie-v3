@@ -14,12 +14,6 @@ export const getPagesFromDB = async (pageSize = null, startCursor = null, tag = 
         equals: true,
       },
     },
-    sort: [
-      {
-        property: "date",
-        direction: "descending",
-      },
-    ],
   }
 
   if (pageSize) {
@@ -49,6 +43,10 @@ export const getPagesFromDB = async (pageSize = null, startCursor = null, tag = 
   return {
     pages: pagesRaw.results.map((page) => {
       return convertPagePropertiesToConsumable(page.id, page.properties)
+    }).sort((a, b) => {
+      const dateA = dayjs(a.date, "MMM DD, YYYY")
+      const dateB = dayjs(b.date, "MMM DD, YYYY")
+      return dateB - dateA
     }),
     hasMore: pagesRaw.has_more,
     nextCursor: pagesRaw.next_cursor,
