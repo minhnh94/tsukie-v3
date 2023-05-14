@@ -13,7 +13,7 @@ import rehypeHighlight from "rehype-highlight"
 import highlightjsCSS from 'highlight.js/styles/github-dark-dimmed.css'
 import readingTime from "reading-time"
 import ReactMarkdown from "react-markdown"
-import { getPageContentAsMarkdownById, getPageIdBySlug, getPagePropertiesById, getPagesForSidebar, getPagesFromDB } from "../../../../api/contentFetcher"
+import { getPageContentAsMarkdownById, getPageIdBySlug, getPagePropertiesById, getPagesForSidebar, getPagesFromDB } from "@/api/contentFetcher"
 import { CustomLink } from "@/partials/CustomLink"
 import { NextSeo } from "next-seo"
 import Screen from "@/partials/Screen"
@@ -45,7 +45,7 @@ function Post({ content, pageProperties, pagesForSidebar, readingStats }) {
                 </Link>
               </div>
 
-              {/*Loading indicator*/}
+              {/*Loading indicator*/ }
               <div role="status">
                 <svg aria-hidden="true" className="inline w-10 h-10 mr-2 text-gray-200 animate-spin dark:text-gray-600 fill-sky-500" viewBox="0 0 100 101" fill="none"
                      xmlns="http://www.w3.org/2000/svg">
@@ -176,6 +176,12 @@ function Post({ content, pageProperties, pagesForSidebar, readingStats }) {
 
 export async function getStaticProps({ params: { post } }) {
   const pageId = await getPageIdBySlug(post)
+  if (!pageId) {
+    return {
+      notFound: true,
+    }
+  }
+
   const mdString = await getPageContentAsMarkdownById(pageId)
   const readingStats = readingTime(mdString)
   const pageProperties = await getPagePropertiesById(pageId)

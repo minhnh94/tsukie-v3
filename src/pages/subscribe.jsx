@@ -3,9 +3,7 @@ import { CheckCircleIcon } from "@heroicons/react/20/solid"
 import useSubscribe from "../../hooks/useSubscribe"
 
 import SideNavigation from '../partials/SideNavigation'
-import Header from '../partials/Header'
 import WidgetSponsor from '../partials/WidgetSponsor'
-import Footer from '../partials/Footer'
 import { NextSeo } from "next-seo"
 import MainContent from "@/partials/MainContent"
 import MiddleArea from "@/partials/MiddleArea"

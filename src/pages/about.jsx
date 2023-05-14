@@ -1,12 +1,10 @@
 import React from 'react'
 
 import SideNavigation from '../partials/SideNavigation'
-import Header from '../partials/Header'
 import WidgetNewsletter from '../partials/WidgetNewsletter'
 import WidgetSponsor from '../partials/WidgetSponsor'
-import Footer from '../partials/Footer'
 
-import { getPageContentAsMarkdownById } from "../../api/contentFetcher"
+import { getPageContentAsMarkdownById } from "@/api/contentFetcher"
 import ReactMarkdown from "react-markdown"
 import rehypeRaw from "rehype-raw"
 import rehypeFigure from "rehype-figure"

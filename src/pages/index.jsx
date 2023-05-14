@@ -6,7 +6,7 @@ import ArticlesList from '../partials/ArticlesList'
 import Projects from '../partials/Projects'
 import WidgetNewsletter from '../partials/WidgetNewsletter'
 import WidgetSponsor from '../partials/WidgetSponsor'
-import { getPagesFromDB } from "../../api/contentFetcher"
+import { getPagesFromDB } from "@/api/contentFetcher"
 import { NextSeo } from "next-seo"
 import Screen from "@/partials/Screen"
 import MainContent from "@/partials/MainContent"

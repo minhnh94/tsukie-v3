@@ -149,6 +149,10 @@ export const getPageIdBySlug = async (slug) => {
     },
   })
 
+  if (pagesRaw.results.length === 0) {
+    return null
+  }
+
   return pagesRaw.results[0].id
 }
 
