@@ -12,12 +12,8 @@ import Screen from "@/partials/Screen"
 import MainContent from "@/partials/MainContent"
 import MiddleArea from "@/partials/MiddleArea"
 import RightSidebar from "@/partials/RightSidebar"
-import useClearData from "../../hooks/useClearData"
 
 function Index({ items, tags }) {
-  // TODO: Will remove this after a week
-  useClearData()
-
   return (
     <Screen>
       <NextSeo
