@@ -12,6 +12,7 @@ import Screen from "@/partials/Screen"
 import MainContent from "@/partials/MainContent"
 import MiddleArea from "@/partials/MiddleArea"
 import RightSidebar from "@/partials/RightSidebar"
+import { TAG_LATEST } from "@/utils/constants"
 
 function Index({ items, tags }) {
   return (
@@ -59,9 +60,9 @@ function Index({ items, tags }) {
 export async function getStaticProps() {
   const pageInfo = await getPagesFromDB()
   const items = pageInfo.pages
-  const tags = Object.keys(separateByTags(items))
+  const tags = Object.keys(separateByTags(items)).sort()
   return {
-    props: { items, tags },
+    props: { items, tags: [TAG_LATEST, ...tags] },
     revalidate: 43200,
   }
 }
