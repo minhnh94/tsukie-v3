@@ -1,11 +1,15 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Link from "next/link"
 
 import { useRouter } from "next/router"
 
 function SideNavigation() {
-  const pathname = useRouter().asPath
-  console.log(pathname)
+  const router = useRouter();
+  const [pathname, setPathname] = useState("");
+
+  useEffect(() => {
+    setPathname(router.asPath);
+  }, [router]);
 
   return (
     <div className="sticky top-0 w-16 md:w-24 shrink-0 h-screen overflow-y-auto no-scrollbar border-r border-slate-200 dark:border-slate-800">
