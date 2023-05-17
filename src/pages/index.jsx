@@ -33,6 +33,7 @@ function Index({ items, tags }) {
           }],
         } }
       />
+
       <SideNavigation/>
 
       <MainContent>
