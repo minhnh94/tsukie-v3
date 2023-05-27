@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
+import { useTheme } from "next-themes"
 import Link from "next/link"
 
 function SearchField() {
@@ -25,27 +26,11 @@ function SearchField() {
 }
 
 function Header() {
-
-  // Handle light modes
-  const [darkMode, setDarkMode] = useState(-1)
+  const { theme, setTheme } = useTheme()
 
   useEffect(() => {
-    const currentDisplayMode = JSON.parse(localStorage.getItem('dark-mode'))
-    setDarkMode(currentDisplayMode ?? false)
+    setTheme("dark")
   }, [])
-
-  useEffect(() => {
-    if (darkMode === -1) {
-      return
-    }
-
-    localStorage.setItem('dark-mode', JSON.stringify(darkMode));
-    if (darkMode) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-  }, [darkMode]);
 
   return (
     <header>
@@ -53,7 +38,7 @@ function Header() {
         <div className="grow flex justify-end space-x-4">
           {/* Search form */ }
           {/* TODO: Disabled until I find a use for this */ }
-          {/*<SearchField/>*/}
+          {/*<SearchField/>*/ }
 
           {/* Light switch */ }
           <div className="flex flex-col justify-center ml-3">
@@ -62,8 +47,8 @@ function Header() {
               name="light-switch"
               id="light-switch"
               className="light-switch sr-only"
-              checked={ darkMode }
-              onChange={ () => setDarkMode(!darkMode) }
+              checked={ true }
+              onChange={ () => theme === "dark" ? setTheme("light") : setTheme("dark") }
             />
             <label className="relative cursor-pointer p-2" htmlFor="light-switch">
               <svg className="dark:hidden" width="16" height="16" xmlns="http://www.w3.org/2000/svg">
@@ -93,7 +78,7 @@ function Header() {
         </div>
       </div>
     </header>
-  );
+  )
 }
 
-export default Header;
+export default Header
