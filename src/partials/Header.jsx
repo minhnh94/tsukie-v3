@@ -28,10 +28,6 @@ function SearchField() {
 function Header() {
   const { theme, setTheme } = useTheme()
 
-  useEffect(() => {
-    setTheme("dark")
-  }, [])
-
   return (
     <header>
       <div className="flex items-center justify-between h-16 before:block">
