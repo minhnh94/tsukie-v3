@@ -5,7 +5,7 @@ import RightSidebar from "@/partials/RightSidebar"
 import WidgetSponsor from "@/partials/WidgetSponsor"
 import Screen from "@/partials/Screen"
 
-function ContactUs() {
+function Page() {
   return (
     <Screen>
       <SideNavigation/>
@@ -33,4 +33,4 @@ function ContactUs() {
   )
 }
 
-export default ContactUs
+export default Page

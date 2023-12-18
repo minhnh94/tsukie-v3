@@ -5,7 +5,7 @@ import RightSidebar from "@/partials/RightSidebar"
 import WidgetSponsor from "@/partials/WidgetSponsor"
 import Screen from "@/partials/Screen"
 
-function ExpertCalendarAddon() {
+function Page() {
   return (
     <Screen>
       <SideNavigation/>
@@ -68,4 +68,4 @@ function ExpertCalendarAddon() {
   )
 }
 
-export default ExpertCalendarAddon
+export default Page

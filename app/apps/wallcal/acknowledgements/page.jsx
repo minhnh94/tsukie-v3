@@ -6,7 +6,7 @@ import WidgetSponsor from "@/partials/WidgetSponsor"
 import Screen from "@/partials/Screen"
 import React from "react"
 
-function Acknowledgements() {
+function Page() {
   return (
     <Screen>
       <SideNavigation/>
@@ -181,4 +181,4 @@ function Acknowledgements() {
   )
 }
 
-export default Acknowledgements
+export default Page

@@ -1,10 +1,10 @@
 import React from 'react'
 
-import SideNavigation from '../partials/SideNavigation'
-import WidgetNewsletter from '../partials/WidgetNewsletter'
-import WidgetSponsor from '../partials/WidgetSponsor'
+import SideNavigation from '@/partials/SideNavigation'
+import WidgetNewsletter from '@/partials/WidgetNewsletter'
+import WidgetSponsor from '@/partials/WidgetSponsor'
 
-import { getPageContentAsMarkdownById } from "@/api/contentFetcher"
+import { getPageContentAsMarkdownById } from "@/lib/contentFetcher"
 import ReactMarkdown from "react-markdown"
 import rehypeRaw from "rehype-raw"
 import rehypeFigure from "rehype-figure"
@@ -12,31 +12,41 @@ import rehypeHighlight from "rehype-highlight"
 import highlightjsCSS from 'highlight.js/styles/github-dark-dimmed.css'
 import { CustomLink } from "@/partials/CustomLink"
 import { Highlight } from "@/partials/Highlight"
-import { NextSeo } from "next-seo"
 import Screen from "@/partials/Screen"
 import MainContent from "@/partials/MainContent"
 import MiddleArea from "@/partials/MiddleArea"
 import RightSidebar from "@/partials/RightSidebar"
 
-function About({ content }) {
+export const metadata = {
+  // migrate from NextSeo below
+  title: 'Tsukie - coding x life x indie hacker journey',
+  description: "Welcome to Tsukie, a blog where coding, life, and my indie hacker journey converge. As a seasoned software programmer, I'm now dabbling into the part-time indie hacker path and sharing my experiences along the way.",
+  metadataBase: new URL('https://tsukie.com/'),
+  openGraph: {
+    type: 'website',
+    title: 'Tsukie - coding x life x indie hacker journey',
+    description: "Welcome to Tsukie, a blog where coding, life, and my indie hacker journey converge. As a seasoned software programmer, I'm now dabbling into the part-time indie hacker path and sharing my experiences along the way.",
+    url: 'https://tsukie.com/',
+    twitter: {
+      cardType: 'summary_large_image',
+      title: 'Tsukie - coding x life x indie hacker journey',
+      description: "Welcome to Tsukie, a blog where coding, life, and my indie hacker journey converge. As a seasoned software programmer, I'm now dabbling into the part-time indie hacker path and sharing my experiences along the way.",
+      creator: '@minhnh94',
+      image: ['https://tsukie.com/images/about.jpg'],
+    },
+    images: [{
+      url: 'https://tsukie.com/images/about.jpg',
+      alt: 'about tsukie',
+    }],
+  },
+}
+
+export const revalidate = 43200 // 12 hours
+
+export default async function Page() {
+  const content = await getPageContentAsMarkdownById('8df3801c8eab41b880457de0af11cccd')
   return (
     <Screen>
-      <NextSeo
-        title="Tsukie - coding x life x indie hacker journey"
-        description="Welcome to Tsukie, a blog where coding, life, and my indie hacker journey converge. As a seasoned software programmer, I'm now dabbling into the part-time indie hacker path and sharing my experiences along the way."
-        canonical="https://tsukie.com/"
-        twitter={ { site: '@minhnh94', handle: '@minhnh94', cardType: 'summary_large_image' } }
-        openGraph={ {
-          url: 'https://tsukie.com/',
-          type: 'website',
-          title: 'Tsukie - coding x life x indie hacker journey',
-          description: 'Welcome to Tsukie, a blog where coding, life, and my indie hacker journey converge. As a seasoned software programmer, I\'m now dabbling into the part-time indie hacker path and sharing my experiences along the way.',
-          images: [{
-            url: 'https://tsukie.com/images/about.jpg',
-            alt: 'about tsukie',
-          }],
-        } }
-      />
       <SideNavigation/>
       <MainContent>
         { /* Content */ }
@@ -69,16 +79,3 @@ function About({ content }) {
     </Screen>
   )
 }
-
-export async function getStaticProps() {
-  const content = await getPageContentAsMarkdownById('8df3801c8eab41b880457de0af11cccd') // read from "about" page
-
-  return {
-    props: {
-      content,
-    },
-    revalidate: 43200,
-  }
-}
-
-export default About

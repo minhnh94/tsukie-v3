@@ -1,15 +1,11 @@
+'use client'
 import React, { useEffect, useState } from 'react'
 import Link from "next/link"
 
-import { useRouter } from "next/router"
+import { usePathname } from "next/navigation"
 
 function SideNavigation() {
-  const router = useRouter();
-  const [pathname, setPathname] = useState("");
-
-  useEffect(() => {
-    setPathname(router.asPath);
-  }, [router]);
+  const pathname = usePathname()
 
   return (
     <div className="sticky top-0 w-16 md:w-24 shrink-0 h-screen overflow-y-auto no-scrollbar border-r border-slate-200 dark:border-slate-800">

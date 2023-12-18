@@ -1,12 +1,7 @@
+'use client'
 import React, { useState } from 'react'
 import { CheckCircleIcon } from "@heroicons/react/20/solid"
 import useSubscribe from "../../hooks/useSubscribe"
-
-import Avatar01 from '../images/avatar-01.jpg'
-import Avatar02 from '../images/avatar-02.jpg'
-import Avatar03 from '../images/avatar-03.jpg'
-import Avatar04 from '../images/avatar-04.jpg'
-import Avatar05 from '../images/avatar-05.jpg'
 
 function WidgetNewsletter() {
   const { email, setEmail, isLoading, isSubscribed, handleSubmit } = useSubscribe();

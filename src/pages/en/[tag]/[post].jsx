@@ -21,6 +21,7 @@ import MainContent from "@/partials/MainContent"
 import MiddleArea from "@/partials/MiddleArea"
 import RightSidebar from "@/partials/RightSidebar"
 import { LoadingIndicator } from "@/partials/LoadingIndicator"
+import { DiscussionEmbed } from "disqus-react"
 
 function Post({ content, pageProperties, pagesForSidebar, readingStats }) {
   const router = useRouter()
@@ -49,6 +50,17 @@ function Post({ content, pageProperties, pagesForSidebar, readingStats }) {
               {/*This only shows during fallback mode*/}
               <LoadingIndicator/>
 
+              <DiscussionEmbed
+                shortname='example'
+                config={
+                  {
+                    url: 'http://localhost:3000/en/indie/how-i-turned-a-hobby-project-to-10000-revenue',
+                    identifier: 'how-i-turned-a-hobby-project-to-10000-revenue',
+                    title: 'How I turned a hobby project to 10,000$ revenue',
+                    language: 'en' //e.g. for Traditional Chinese (Taiwan)
+                  }
+                }
+              />
             </MiddleArea>
 
             <RightSidebar>
