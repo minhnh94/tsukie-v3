@@ -71,11 +71,9 @@ export const getPagesForSidebar = async (pageSize = 5) => {
     page_size: pageSize,
   })
 
-  return {
-    pagesForSidebar: pagesRaw.results.map((page) => {
-      return convertPagePropertiesToConsumable(page.id, page.properties)
-    }),
-  }
+  return pagesRaw.results.map((page) => {
+    return convertPagePropertiesToConsumable(page.id, page.properties)
+  })
 }
 
 export const getPagesForFirstIndexPage = async () => {

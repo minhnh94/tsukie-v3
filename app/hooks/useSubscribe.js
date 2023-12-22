@@ -1,4 +1,3 @@
-// hooks/useSubscribe.js
 import { useState } from "react";
 
 const useSubscribe = () => {

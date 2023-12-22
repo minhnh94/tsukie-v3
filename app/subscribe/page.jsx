@@ -1,36 +1,41 @@
 import React from 'react'
-import { CheckCircleIcon } from "@heroicons/react/20/solid"
-import useSubscribe from "../../hooks/useSubscribe"
 
-import SideNavigation from '../partials/SideNavigation'
-import WidgetSponsor from '../partials/WidgetSponsor'
-import { NextSeo } from "next-seo"
+import SideNavigation from '@/partials/SideNavigation'
+import WidgetSponsor from '@/partials/WidgetSponsor'
 import MainContent from "@/partials/MainContent"
 import MiddleArea from "@/partials/MiddleArea"
 import RightSidebar from "@/partials/RightSidebar"
 import Screen from "@/partials/Screen"
+import SubscribeForm from "@/subscribe/subscribe-form"
 
-function Subscribe() {
-  const { email, setEmail, isLoading, isSubscribed, handleSubmit } = useSubscribe()
+export const metadata = {
+  // migrate from NextSeo below
+  title: 'Tsukie - coding x life x indie hacker journey',
+  description: "Join me on a thrilling journey through coding, life lessons, and indie hacking adventures!",
+  metadataBase: new URL('https://tsukie.com/'),
+  twitter: {
+    cardType: 'summary_large_image',
+    title: 'Tsukie - coding x life x indie hacker journey',
+    description: "Join me on a thrilling journey through coding, life lessons, and indie hacking adventures!",
+    creator: '@minhnh94',
+    image: ['https://tsukie.com/images/about.jpg'],
+  },
+  openGraph: {
+    type: 'website',
+    title: 'Tsukie - coding x life x indie hacker journey',
+    description: "Join me on a thrilling journey through coding, life lessons, and indie hacking adventures!",
+    url: 'https://tsukie.com/',
+    images: [{
+      url: 'https://tsukie.com/images/about.jpg',
+      alt: 'about tsukie',
+    }],
+  },
+}
+
+function Page() {
 
   return (
     <Screen>
-      <NextSeo
-        title="Tsukie - coding x life x indie hacker journey"
-        description="Join me on a thrilling journey through coding, life lessons, and indie hacking adventures!"
-        canonical="https://tsukie.com/"
-        twitter={ { site: '@minhnh94', handle: '@minhnh94', cardType: 'summary_large_image' } }
-        openGraph={ {
-          url: 'https://tsukie.com/',
-          type: 'website',
-          title: 'Tsukie - coding x life x indie hacker journey',
-          description: 'Join me on a thrilling journey through coding, life lessons, and indie hacking adventures!',
-          images: [{
-            url: 'https://tsukie.com/images/about.jpg',
-            alt: 'about tsukie',
-          }],
-        } }
-      />
       <SideNavigation/>
       <MainContent>
         {/* Content */ }
@@ -89,36 +94,7 @@ function Subscribe() {
                   </ul>
                   <p className="text-lg">Together, let's level up and dive into our exhilarating journey towards success!</p>
                   <div>
-                    {/* Subscribe form */ }
-                    <form onSubmit={ handleSubmit }>
-                      <div className="flex flex-col md:flex-row justify-center max-w-xs mx-auto md:max-w-md md:mx-0">
-                        <input
-                          type="email"
-                          className="form-input w-full mb-2 md:mb-0 md:mr-2"
-                          placeholder="Your email"
-                          aria-label="Your email\u2026"
-                          value={ email }
-                          onChange={ (e) => setEmail(e.target.value) }
-                          required
-                          disabled={ isSubscribed }
-                        />
-                        <button
-                          className={ `btn text-white ${
-                            isSubscribed ? 'bg-green-500' : 'bg-sky-500 hover:bg-sky-600'
-                          } ${ isLoading || isSubscribed ? 'cursor-not-allowed' : '' }` }
-                          type="submit"
-                          disabled={ isLoading || isSubscribed }
-                        >
-                          { isSubscribed ? (
-                            <CheckCircleIcon className="w-5 h-5"/>
-                          ) : isLoading ? (
-                            'Subscribing...'
-                          ) : (
-                            'Subscribe'
-                          ) }
-                        </button>
-                      </div>
-                    </form>
+                    <SubscribeForm/>
                   </div>
                 </div>
               </section>
@@ -135,4 +111,4 @@ function Subscribe() {
   )
 }
 
-export default Subscribe
+export default Page

@@ -1,7 +1,7 @@
 'use client'
-import React, { useState } from 'react'
+import React from 'react'
 import { CheckCircleIcon } from "@heroicons/react/20/solid"
-import useSubscribe from "../../hooks/useSubscribe"
+import useSubscribe from "@/hooks/useSubscribe"
 
 function WidgetNewsletter() {
   const { email, setEmail, isLoading, isSubscribed, handleSubmit } = useSubscribe();

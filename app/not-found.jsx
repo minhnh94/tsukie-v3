@@ -1,12 +1,13 @@
-import SideNavigation from '../partials/SideNavigation'
-import WidgetSponsor from '../partials/WidgetSponsor'
+import SideNavigation from '@/partials/SideNavigation'
+import WidgetSponsor from '@/partials/WidgetSponsor'
 import React from "react"
 import Screen from "@/partials/Screen"
 import MainContent from "@/partials/MainContent"
 import MiddleArea from "@/partials/MiddleArea"
 import RightSidebar from "@/partials/RightSidebar"
+import WidgetPosts from "@/partials/WidgetPosts"
 
-function NotFoundPage() {
+export default function NotFound() {
   return (
     <Screen>
       <SideNavigation/>
@@ -32,11 +33,10 @@ function NotFoundPage() {
           <RightSidebar>
             <WidgetSponsor imageRotationClass="rotate-1" title="My latest project" pjName="WallCal" img="/images/wallcal-screenshot.webp"
                            pjDesc="The best sticky calendar on desktop background for macOS" link="https://wallcal.app/"/>
+            <WidgetPosts/>
           </RightSidebar>
         </div>
       </MainContent>
     </Screen>
   )
 }
-
-export default NotFoundPage

@@ -1,3 +1,4 @@
+'use client'
 import React from 'react'
 
 function WidgetSponsor({ imageRotationClass, title, pjName, pjDesc, link, img }) {
