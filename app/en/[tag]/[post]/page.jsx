@@ -41,7 +41,7 @@ export async function generateMetadata({ params }) {
       type: 'article',
       title: pageProperties.title,
       description: pageProperties.summary,
-      url: `https://tsukie.com/${ params.tag }/${ params.post }`,
+      url: `https://tsukie.com/en/${ params.tag }/${ params.post }`,
       images: [{
         url: pageProperties.thumbnail,
         alt: pageProperties.title,
