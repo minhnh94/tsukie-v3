@@ -1,7 +1,7 @@
 'use client'
 import React, { useState } from 'react'
 
-import ArticleItem from '../partials/ArticleItem'
+import ArticleItem from '@/partials/ArticleItem'
 import { TAG_LATEST } from "@/utils/constants"
 
 function ArticlesList({ items, tags }) {

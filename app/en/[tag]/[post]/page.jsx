@@ -1,10 +1,10 @@
 import React from 'react'
 import Link from "next/link"
 
-import SideNavigation from '../../../partials/SideNavigation'
-import WidgetNewsletter from '../../../partials/WidgetNewsletter'
-import WidgetSponsor from '../../../partials/WidgetSponsor'
-import WidgetPosts from '../../../partials/WidgetPosts'
+import SideNavigation from '@/partials/SideNavigation'
+import WidgetNewsletter from '@/partials/WidgetNewsletter'
+import WidgetSponsor from '@/partials/WidgetSponsor'
+import WidgetPosts from '@/partials/WidgetPosts'
 
 import rehypeRaw from "rehype-raw"
 import rehypeFigure from "rehype-figure"
@@ -18,7 +18,7 @@ import Screen from "@/partials/Screen"
 import MainContent from "@/partials/MainContent"
 import MiddleArea from "@/partials/MiddleArea"
 import RightSidebar from "@/partials/RightSidebar"
-import ShareBtnRow from "@/en/[tag]/[post]/share-btn-row"
+import ShareBtnRow from "./share-btn-row"
 
 export const revalidate = 43200 // 12 hours
 
@@ -38,7 +38,7 @@ export async function generateMetadata({ params }) {
       image: [pageProperties.thumbnail],
     },
     openGraph: {
-      type: 'website',
+      type: 'article',
       title: pageProperties.title,
       description: pageProperties.summary,
       url: `https://tsukie.com/${ params.tag }/${ params.post }`,
@@ -113,6 +113,7 @@ export default async function Page({ params }) {
 
 export async function getPostContent(params) {
   const pageId = await getPageIdBySlug(params.post)
+  if (!pageId) throw new Error(`Page not found: ${ params.post }`)
   const mdString = await getPageContentAsMarkdownById(pageId)
   const readingStats = readingTime(mdString)
   const pageProperties = await getPagePropertiesById(pageId)

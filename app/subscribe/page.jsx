@@ -6,7 +6,7 @@ import MainContent from "@/partials/MainContent"
 import MiddleArea from "@/partials/MiddleArea"
 import RightSidebar from "@/partials/RightSidebar"
 import Screen from "@/partials/Screen"
-import SubscribeForm from "@/subscribe/subscribe-form"
+import SubscribeForm from "./subscribe-form"
 
 export const metadata = {
   // migrate from NextSeo below
@@ -21,7 +21,7 @@ export const metadata = {
     image: ['https://tsukie.com/images/about.jpg'],
   },
   openGraph: {
-    type: 'website',
+    type: 'article',
     title: 'Tsukie - coding x life x indie hacker journey',
     description: "Join me on a thrilling journey through coding, life lessons, and indie hacking adventures!",
     url: 'https://tsukie.com/',

@@ -30,7 +30,7 @@ export const metadata = {
     image: ['https://tsukie.com/images/about.jpg'],
   },
   openGraph: {
-    type: 'website',
+    type: 'article',
     title: 'Tsukie - coding x life x indie hacker journey',
     description: "Welcome to Tsukie, a blog where coding, life, and my indie hacker journey converge. As a seasoned software programmer, I'm now dabbling into the part-time indie hacker path and sharing my experiences along the way.",
     url: 'https://tsukie.com/',

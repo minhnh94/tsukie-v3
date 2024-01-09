@@ -1,7 +1,7 @@
 module.exports = {
   content: [
-    './index.html',
     './app/**/*.{js,jsx,ts,tsx}',
+    './partials/**/*.{js,jsx,ts,tsx}',
   ],
   darkMode: 'class',
   theme: {
