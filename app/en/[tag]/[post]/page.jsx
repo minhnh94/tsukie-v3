@@ -24,6 +24,9 @@ export const revalidate = 43200 // 12 hours
 
 export async function generateMetadata({ params }) {
   const pageId = await getPageIdBySlug(params.post)
+  if (!pageId) {
+    throw new Error(`Page not found: ${ params.post }`)
+  }
   const pageProperties = await getPagePropertiesById(pageId)
   return {
     // migrate from NextSeo below
@@ -48,6 +51,11 @@ export async function generateMetadata({ params }) {
       }],
     },
   }
+}
+
+export async function generateStaticParams() {
+  const { pages } = await getPagesFromDB()
+  return pages.map(page => ({ tag: page.tag, post: page.slug }))
 }
 
 export default async function Page({ params }) {
@@ -111,9 +119,11 @@ export default async function Page({ params }) {
   )
 }
 
-export async function getPostContent(params) {
+async function getPostContent(params) {
   const pageId = await getPageIdBySlug(params.post)
-  if (!pageId) throw new Error(`Page not found: ${ params.post }`)
+  if (!pageId) {
+    throw new Error(`Page not found: ${ params.post }`)
+  }
   const mdString = await getPageContentAsMarkdownById(pageId)
   const readingStats = readingTime(mdString)
   const pageProperties = await getPagePropertiesById(pageId)
@@ -122,9 +132,4 @@ export async function getPostContent(params) {
     pageProperties,
     readingStats,
   }
-}
-
-export async function generateStaticParams() {
-  const { pages } = await getPagesFromDB()
-  return pages.map(page => ({ tag: page.tag, post: page.slug }))
 }
