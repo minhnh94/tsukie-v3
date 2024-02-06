@@ -20,11 +20,11 @@ export default function Error() {
             <div className="space-y-10">
               <section>
                 {/* Page title */ }
-                <h1 className="h1 font-aspekta mb-5">Oops, 404 not found!</h1>
+                <h1 className="h1 font-aspekta mb-5">Oops, 500 internal server error.</h1>
                 {/* Page content */ }
                 <div className="text-slate-500 dark:text-slate-400 space-y-8">
                   <p className="text-lg">
-                    You tried to search for a resource that was not available at our end.
+                    This is embarrassing, but something went wrong. Please try again later.
                   </p>
                 </div>
               </section>
