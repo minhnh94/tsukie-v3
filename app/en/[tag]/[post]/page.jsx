@@ -5,20 +5,14 @@ import SideNavigation from '@/partials/SideNavigation'
 import WidgetNewsletter from '@/partials/WidgetNewsletter'
 import WidgetSponsor from '@/partials/WidgetSponsor'
 import WidgetPosts from '@/partials/WidgetPosts'
-
-import rehypeRaw from "rehype-raw"
-import rehypeFigure from "rehype-figure"
-import rehypeHighlight from "rehype-highlight"
-import highlightjsCSS from 'highlight.js/styles/github-dark-dimmed.css'
 import readingTime from "reading-time"
-import ReactMarkdown from "react-markdown"
 import { getPageContentAsMarkdownById, getPageIdBySlug, getPagePropertiesById, getPagesFromDB } from "@/lib/contentFetcher"
-import { CustomLink } from "@/partials/CustomLink"
 import Screen from "@/partials/Screen"
 import MainContent from "@/partials/MainContent"
 import MiddleArea from "@/partials/MiddleArea"
 import RightSidebar from "@/partials/RightSidebar"
 import ShareBtnRow from "./share-btn-row"
+import ParagraphFromCms from "@/partials/paragraph-from-cms"
 
 export const revalidate = 43200 // 12 hours
 
@@ -95,15 +89,7 @@ export default async function Page({ params }) {
                 <h1 className="h1 font-aspekta mb-4">{ pageProperties.title }</h1>
               </header>
               {/* Post content */ }
-              <div className="text-slate-500 dark:text-slate-400 space-y-8">
-                {/* react_markdown class defined in typography.css */ }
-                <ReactMarkdown rehypePlugins={ [rehypeRaw, rehypeFigure, rehypeHighlight] }
-                               className={ `react_markdown ${ highlightjsCSS }` }
-                               components={ { a: CustomLink } }
-                >
-                  { content }
-                </ReactMarkdown>
-              </div>
+              <ParagraphFromCms content={ content }/>
             </article>
           </MiddleArea>
 

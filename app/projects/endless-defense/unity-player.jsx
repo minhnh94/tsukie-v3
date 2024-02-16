@@ -18,5 +18,5 @@ export default function UnityPlayer() {
   }, [])
 
   // matchWebGLToCanvasSize={false} is important to prevent the canvas from resizing to the size of the parent element
-  return <Unity id={"game"} unityProvider={ unityProvider } className="w-full" matchWebGLToCanvasSize={false}/>
+  return <Unity id={ "game" } unityProvider={ unityProvider } className="w-full" matchWebGLToCanvasSize={ false }/>
 }

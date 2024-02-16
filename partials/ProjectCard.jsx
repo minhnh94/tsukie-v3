@@ -19,7 +19,7 @@ export function ProjectCard({ pjName, pjDesc, pjImg, pjLink, bgImg }) {
         { pjImg
           ?
           <div className="h-10 w-10 flex items-center justify-center rounded-full mb-2">
-            <img src={ pjImg } alt=""/>
+            <img src={ pjImg.includes('http') ? pjImg : `/images/${ pjImg }` } alt=""/>
           </div>
           :
           <div className="h-10 w-10 flex items-center justify-center border border-slate-200 dark:border-slate-700 rounded-full mb-2">
