@@ -5,17 +5,12 @@ import WidgetNewsletter from '@/partials/WidgetNewsletter'
 import WidgetSponsor from '@/partials/WidgetSponsor'
 
 import { getPageContentAsMarkdownById } from "@/lib/contentFetcher"
-import ReactMarkdown from "react-markdown"
-import rehypeRaw from "rehype-raw"
-import rehypeFigure from "rehype-figure"
-import rehypeHighlight from "rehype-highlight"
-import highlightjsCSS from 'highlight.js/styles/github-dark-dimmed.css'
-import { CustomLink } from "@/partials/CustomLink"
 import { Highlight } from "@/partials/Highlight"
 import Screen from "@/partials/Screen"
 import MainContent from "@/partials/MainContent"
 import MiddleArea from "@/partials/MiddleArea"
 import RightSidebar from "@/partials/RightSidebar"
+import ParagraphFromCms from "@/partials/paragraph-from-cms"
 
 export const metadata = {
   // migrate from NextSeo below
@@ -57,15 +52,7 @@ export default async function Page() {
               <h1 className="h1 font-aspekta mb-5"><Highlight>Tsukie</Highlight> - Coding x Indie 🤟</h1>
               <img className="w-full" src="/images/about.jpg" width="692" height="390" alt="About"/>
               { /* Page content */ }
-              <div className="text-slate-500 dark:text-slate-400 space-y-8 my-4">
-                {/* react_markdown class defined in typography.css */ }
-                <ReactMarkdown rehypePlugins={ [rehypeRaw, rehypeFigure, rehypeHighlight] }
-                               className={ `react_markdown ${ highlightjsCSS }` }
-                               components={ { a: CustomLink } }
-                >
-                  { content }
-                </ReactMarkdown>
-              </div>
+              <ParagraphFromCms content={content} />
             </section>
           </MiddleArea>
 

@@ -16,9 +16,16 @@ function Projects() {
           bgImg="wallcal-screenshot.webp"
         />
         <ProjectCard
+          pjName="Endless Defense"
+          pjDesc="A web-based tower defense game perfect for killing time"
+          pjImg="endless-defense-icon.png"
+          pjLink="/projects/endless-defense"
+          bgImg="endless-defense-bg.jpg"
+        />
+        <ProjectCard
           pjName="Coming soon..."
           pjDesc="Our next project is being brewed ;)"
-          />
+        />
       </div>
     </section>
   )
