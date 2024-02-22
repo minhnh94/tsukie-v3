@@ -19,7 +19,7 @@ export const metadata = {
     title: 'Endless Defense - A tower defense game from Tsukie',
     description: "A fun and addictive way to kill time right on the web browser. Play now and see how long you can survive!",
     creator: '@minhnh94',
-    image: ['/images/endless-defense-bg.jpg'],
+    image: ['https://tsukie.com/images/endless-defense-bg.jpg'],
   },
   openGraph: {
     type: 'article',
@@ -27,7 +27,7 @@ export const metadata = {
     description: "A fun and addictive way to kill time right on the web browser. Play now and see how long you can survive!",
     url: 'https://tsukie.com/projects/endless-defense',
     images: [{
-      url: '/images/endless-defense-bg.jpg',
+      url: 'https://tsukie.com/images/endless-defense-bg.jpg',
       alt: 'endless defense bg',
     }],
   },
