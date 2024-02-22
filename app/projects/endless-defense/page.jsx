@@ -16,19 +16,19 @@ export const metadata = {
   metadataBase: new URL('https://tsukie.com/projects/endless-defense/'),
   twitter: {
     cardType: 'summary_large_image',
-    title: 'Tsukie - coding x life x indie hacker journey',
-    description: "Join me on a thrilling journey through coding, life lessons, and indie hacking adventures!",
+    title: 'Endless Defense - A tower defense game from Tsukie',
+    description: "A fun and addictive way to kill time right on the web browser. Play now and see how long you can survive!",
     creator: '@minhnh94',
-    image: ['https://tsukie.com/images/about.jpg'],
+    image: ['/images/endless-defense-bg.jpg'],
   },
   openGraph: {
     type: 'article',
-    title: 'Tsukie - coding x life x indie hacker journey',
-    description: "Join me on a thrilling journey through coding, life lessons, and indie hacking adventures!",
-    url: 'https://tsukie.com/',
+    title: 'Endless Defense - A tower defense game from Tsukie',
+    description: "A fun and addictive way to kill time right on the web browser. Play now and see how long you can survive!",
+    url: 'https://tsukie.com/projects/endless-defense',
     images: [{
-      url: 'https://tsukie.com/images/about.jpg',
-      alt: 'about tsukie',
+      url: '/images/endless-defense-bg.jpg',
+      alt: 'endless defense bg',
     }],
   },
 }
