@@ -91,6 +91,15 @@ export default async function Page({ params }) {
               {/* Post content */ }
               <ParagraphFromCms content={ content }/>
             </article>
+
+            {/*Comments*/ }
+            <script src="https://utteranc.es/client.js"
+                    repo="tsukie-blog-comments"
+                    issue-term="pathname"
+                    theme="github-dark"
+                    crossOrigin="anonymous"
+                    async>
+            </script>
           </MiddleArea>
 
           <RightSidebar>
