@@ -9,6 +9,7 @@ import Screen from "@/partials/Screen"
 import UnityPlayer from "@/app/projects/endless-defense/unity-player"
 import { getPageContentAsMarkdownById } from "@/lib/contentFetcher"
 import ParagraphFromCms from "@/partials/paragraph-from-cms"
+import CommentSection from "@/partials/comment-section"
 
 export const metadata = {
   title: 'Endless Defense - A tower defense game from Tsukie',
@@ -57,7 +58,8 @@ export default async function Page() {
             <div className="hidden lg:block">
               <UnityPlayer/>
             </div>
-            <ParagraphFromCms content={content} />
+            <ParagraphFromCms content={ content }/>
+            <CommentSection/>
           </MiddleArea>
 
           <RightSidebar>

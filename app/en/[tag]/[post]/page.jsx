@@ -11,9 +11,9 @@ import Screen from "@/partials/Screen"
 import MainContent from "@/partials/MainContent"
 import MiddleArea from "@/partials/MiddleArea"
 import RightSidebar from "@/partials/RightSidebar"
-import ShareBtnRow from "./share-btn-row"
 import ParagraphFromCms from "@/partials/paragraph-from-cms"
-import CommentSection from "@/app/en/[tag]/[post]/comment-section"
+import CommentSection from "@/partials/comment-section"
+import ShareBtnRow from "@/app/en/[tag]/[post]/share-btn-row"
 
 export const revalidate = 43200 // 12 hours
 
