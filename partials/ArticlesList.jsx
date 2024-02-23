@@ -5,17 +5,17 @@ import ArticleItem from '@/partials/ArticleItem'
 import { TAG_LATEST } from "@/utils/constants"
 
 function ArticlesList({ items, tags }) {
-  const [selectedTagIndex, setSelectedTagIndex] = useState(0)
+  const [selectedTag, setSelectedTag] = useState(TAG_LATEST)
 
-  const handleClick = (index) => {
-    setSelectedTagIndex(index)
+  const handleClick = (tag) => {
+    setSelectedTag(tag)
   }
 
   const filteredItems = items.filter((item) => {
-    if (tags[selectedTagIndex] === TAG_LATEST) {
+    if (selectedTag === TAG_LATEST) {
       return true
     }
-    return item.tag === tags[selectedTagIndex]
+    return selectedTag === item.tag
   }).slice(0, 10)
 
   return (
@@ -24,15 +24,15 @@ function ArticlesList({ items, tags }) {
 
       {/* Filters */ }
       <ul className="flex flex-wrap text-sm border-b border-slate-100 dark:border-slate-800">
-        { tags.map((tag, index) => (
-          <li key={ index } className="px-3 -mb-px">
+        { tags.map((tag) => (
+          <li key={ tag } className="px-3 -mb-px">
             <a
               className={ `block py-3 capitalize hover:cursor-pointer ${
-                selectedTagIndex === index
+                selectedTag === tag
                   ? 'font-medium text-slate-800 dark:text-slate-100 border-b-2 border-sky-500'
                   : 'text-slate-500 hover:text-slate-600 dark:text-slate-400 dark:hover:text-slate-300'
               }` }
-              onClick={ () => handleClick(index) }
+              onClick={ () => handleClick(tag) }
             >
               { tag }
             </a>
@@ -53,6 +53,7 @@ function ArticlesList({ items, tags }) {
               image={ item.thumbnail }
               date={ item.date }
               excerpt={ item.summary }
+              onTagSelection={ setSelectedTag }
             />
           )
         }) }

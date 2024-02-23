@@ -9,7 +9,11 @@ function ArticleItem(props) {
         <img className="rounded w-16 h-16 sm:w-[88px] sm:h-[88px] object-cover mr-6" src={ props.image } width="88" height="88" alt={ props.title }/>
         <div>
           <div className="text-xs text-slate-500 uppercase mb-1">
-            <span className="text-sky-500">—</span> { props.date }
+            <span className="text-sky-500">—</span> { props.date } in <span
+            className="text-sky-500 cursor-pointer hover:underline duration-150 ease-in-out"
+            onClick={ () => {
+              props.onTagSelection(props.tag)
+            } }>{ props.tag }</span>
           </div>
           <h3 className="font-aspekta text-lg font-[650] mb-1">
             <Link
