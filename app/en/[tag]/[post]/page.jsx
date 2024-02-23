@@ -13,6 +13,7 @@ import MiddleArea from "@/partials/MiddleArea"
 import RightSidebar from "@/partials/RightSidebar"
 import ShareBtnRow from "./share-btn-row"
 import ParagraphFromCms from "@/partials/paragraph-from-cms"
+import CommentSection from "@/app/en/[tag]/[post]/comment-section"
 
 export const revalidate = 43200 // 12 hours
 
@@ -93,13 +94,7 @@ export default async function Page({ params }) {
             </article>
 
             {/*Comments*/ }
-            <script src="https://utteranc.es/client.js"
-                    repo="tsukie-blog-comments"
-                    issue-term="pathname"
-                    theme="github-dark"
-                    crossOrigin="anonymous"
-                    async>
-            </script>
+            <CommentSection/>
           </MiddleArea>
 
           <RightSidebar>
