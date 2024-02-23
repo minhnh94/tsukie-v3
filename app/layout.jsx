@@ -1,5 +1,5 @@
 import '@/styles/globals.css'
-import BodyContainer from "@/partials/BodyContainer"
+import BodyContainer from "@/app/body-container"
 
 export default function RootLayout({ children }) {
   return (
