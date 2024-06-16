@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from "next/link"
 
 function Footer() {
   return (
@@ -48,8 +49,12 @@ function Footer() {
             </li>
           </ul>
 
-          {/* Copyright */}
-          <div className="text-sm text-slate-500 dark:text-slate-400">Copyright © Minh Hoang Nguyen@tsukie. All rights reserved.</div>
+          <div className="text-sm text-slate-500 dark:text-slate-400 flex gap-1">
+            {/* Copyright */}
+            <p>Copyright © Minh Hoang Nguyen@tsukie. All rights reserved.</p>
+            {/* Privacy policy */}
+            <Link href={"/privacy-policy"} className="text-sky-500">Privacy Policy</Link>
+          </div>
         </div>
       </div>
     </footer>
