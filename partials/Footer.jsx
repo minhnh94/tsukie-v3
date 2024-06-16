@@ -37,7 +37,7 @@ function Footer() {
             <li>
               <a
                 className="flex justify-center items-center text-sky-500 hover:text-sky-600 transition duration-150 ease-in-out"
-                href="mailto:tsukie.studio@gmail.com"
+                href="mailto:support@tsukie.com"
                 rel="nofollow noopener noreferrer"
                 target="_blank"
                 aria-label="Telegram"
