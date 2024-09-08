@@ -88,7 +88,10 @@ export default async function Page({ params }) {
                   <ShareBtnRow/>
                 </div>
                 <h1 className="h1 font-aspekta mb-4">{ pageProperties.title }</h1>
+                <p className="mb-3 text-gray-500 dark:text-gray-400 italic">{ pageProperties.summary }</p>
               </header>
+              {/* Underline to separate header and content */ }
+              <hr className="my-4 border-t border-sky-500"/>
               {/* Post content */ }
               <ParagraphFromCms content={ content }/>
             </article>
