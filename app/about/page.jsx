@@ -14,19 +14,19 @@ import ParagraphFromCms from "@/partials/paragraph-from-cms"
 
 export const metadata = {
   // migrate from NextSeo below
-  title: 'Tsukie - coding x life x indie hacker journey',
+  title: 'tsukie - tech, soul, and dream',
   description: "Welcome to Tsukie, a blog where coding, life, and my indie hacker journey converge. As a seasoned software programmer, I'm now dabbling into the part-time indie hacker path and sharing my experiences along the way.",
   metadataBase: new URL('https://tsukie.com/'),
   twitter: {
     cardType: 'summary_large_image',
-    title: 'Tsukie - coding x life x indie hacker journey',
+    title: 'tsukie - tech, soul, and dream',
     description: "Welcome to Tsukie, a blog where coding, life, and my indie hacker journey converge. As a seasoned software programmer, I'm now dabbling into the part-time indie hacker path and sharing my experiences along the way.",
     creator: '@minhnh94',
     image: ['https://tsukie.com/images/about.jpg'],
   },
   openGraph: {
     type: 'article',
-    title: 'Tsukie - coding x life x indie hacker journey',
+    title: 'tsukie - tech, soul, and dream',
     description: "Welcome to Tsukie, a blog where coding, life, and my indie hacker journey converge. As a seasoned software programmer, I'm now dabbling into the part-time indie hacker path and sharing my experiences along the way.",
     url: 'https://tsukie.com/',
     images: [{

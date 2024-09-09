@@ -10,19 +10,19 @@ import SubscribeForm from "./subscribe-form"
 
 export const metadata = {
   // migrate from NextSeo below
-  title: 'Tsukie - coding x life x indie hacker journey',
+  title: 'tsukie - tech, soul, and dream',
   description: "Join me on a thrilling journey through coding, life lessons, and indie hacking adventures!",
   metadataBase: new URL('https://tsukie.com/'),
   twitter: {
     cardType: 'summary_large_image',
-    title: 'Tsukie - coding x life x indie hacker journey',
+    title: 'tsukie - tech, soul, and dream',
     description: "Join me on a thrilling journey through coding, life lessons, and indie hacking adventures!",
     creator: '@minhnh94',
     image: ['https://tsukie.com/images/about.jpg'],
   },
   openGraph: {
     type: 'article',
-    title: 'Tsukie - coding x life x indie hacker journey',
+    title: 'tsukie - tech, soul, and dream',
     description: "Join me on a thrilling journey through coding, life lessons, and indie hacking adventures!",
     url: 'https://tsukie.com/',
     images: [{
