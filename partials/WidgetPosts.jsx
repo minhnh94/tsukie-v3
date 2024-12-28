@@ -2,20 +2,21 @@
 import React, { useState, useEffect } from 'react'
 import Link from "next/link"
 
-export default function WidgetPosts() {
+export default function WidgetPosts({chronologically = false}) {
   let [suggestedPosts, setSuggestedPosts] = useState([])
   useEffect(() => {
     console.log('Fetching suggested posts...')
     const fetchData = async () => {
-      const suggestedPosts = await (await fetch('/api/suggestions')).json()
+      const suggestedPosts = await (await fetch(`/api/suggestions?chronologically=${chronologically}`)).json()
+      console.log(suggestedPosts)
       setSuggestedPosts(suggestedPosts)
     }
 
     fetchData()
   }, [])
   return (
-    <div className="rounded-lg border border-slate-200 dark:border-slate-800 dark:bg-gradient-to-t dark:from-slate-800 dark:to-slate-800/30 odd:rotate-1 even:-rotate-1 p-5 sticky top-6">
-      <div className="font-aspekta font-[650] mb-3">Popular Posts</div>
+    <div className="rounded-lg border border-slate-200 dark:border-slate-800 dark:bg-gradient-to-t dark:from-slate-800 dark:to-slate-800/30 odd:rotate-1 even:-rotate-1 p-5">
+      <div className="font-aspekta font-[650] mb-3">{chronologically ? "Latest posts" : "Popular posts"}</div>
       <ul className="space-y-3">
         { suggestedPosts.map(post => (
           <li key={ post.id } className="inline-flex">

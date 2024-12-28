@@ -104,7 +104,10 @@ export default async function Page({ params }) {
             <WidgetNewsletter/>
             <WidgetSponsor imageRotationClass="-rotate-1" title="My latest project" pjName="WallCal" img="/images/wallcal-screenshot.webp"
                            pjDesc="The best sticky calendar on desktop background for macOS" link="https://wallcal.app/"/>
-            <WidgetPosts/>
+            <div className="space-y-6 sticky top-6">
+              <WidgetPosts/>
+              <WidgetPosts chronologically={true}/>
+            </div>
           </RightSidebar>
         </div>
       </MainContent>
