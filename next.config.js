@@ -7,4 +7,6 @@ const nextConfig = {
   },
 };
 
-module.exports = withPlausibleProxy()(nextConfig);
+module.exports = withPlausibleProxy({
+  customDomain: "https://plausible.tsukie.com",
+})(nextConfig);
