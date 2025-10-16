@@ -24,13 +24,15 @@ function WidgetNewsletter() {
         <div className="font-aspekta font-[650] mb-1">Discover the coder's life balance!</div>
         <p className="text-sm text-slate-500 dark:text-slate-400">Subscribe for insights on coding, life experiences, and my indie journey.</p>
       </div>
-      <form onSubmit={ handleSubmit }>
+      <form method="post" action="https://listmonk.tsukie.com/subscription/form">
+        <input type="hidden" name="nonce" />
         <div className="mb-2">
           <label className="sr-only" htmlFor="newsletter">
             Your email…
           </label>
           <input
             id="newsletter"
+            name="email"
             type="email"
             className="form-input py-1 w-full"
             placeholder="Your email…"
@@ -40,6 +42,15 @@ function WidgetNewsletter() {
             disabled={ isSubscribed }
           />
         </div>
+        <input
+          type="checkbox"
+          id="18871"
+          name="l"
+          value="18871bcb-292b-451c-b3a3-126779440e75"
+          checked
+          className="hidden"
+          readOnly
+        />
         <button
           className={ `btn-sm w-full text-slate-100 ${
             isSubscribed ? "bg-green-500" : "bg-sky-500 hover:bg-sky-600"
