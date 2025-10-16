@@ -1,10 +1,7 @@
 'use client'
 import React from 'react'
-import { CheckCircleIcon } from "@heroicons/react/20/solid"
-import useSubscribe from "@/hooks/useSubscribe"
 
 function WidgetNewsletter() {
-  const { email, setEmail, isLoading, isSubscribed, handleSubmit } = useSubscribe();
 
   return (
     <div className="rounded-lg border border-slate-200 dark:border-slate-800 dark:bg-gradient-to-t dark:from-slate-800 dark:to-slate-800/30 odd:rotate-1 even:-rotate-1 p-5">
@@ -36,10 +33,7 @@ function WidgetNewsletter() {
             type="email"
             className="form-input py-1 w-full"
             placeholder="Your email…"
-            value={ email }
-            onChange={ (e) => setEmail(e.target.value) }
             required
-            disabled={ isSubscribed }
           />
         </div>
         <input
@@ -52,19 +46,10 @@ function WidgetNewsletter() {
           readOnly
         />
         <button
-          className={ `btn-sm w-full text-slate-100 ${
-            isSubscribed ? "bg-green-500" : "bg-sky-500 hover:bg-sky-600"
-          }` }
+          className="btn-sm w-full text-slate-100 bg-sky-500 hover:bg-sky-600"
           type="submit"
-          disabled={ isLoading || isSubscribed }
         >
-          { isSubscribed ? (
-            <CheckCircleIcon className="w-5 h-5"/>
-          ) : isLoading ? (
-            "Subscribing..."
-          ) : (
-            "Subscribe"
-          ) }
+          Subscribe
         </button>
       </form>
     </div>
