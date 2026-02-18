@@ -1,0 +1,11 @@
+---
+import Header from '@/components/Header.astro';
+import Footer from '@/components/Footer.astro';
+---
+<main class="grow min-w-0 overflow-hidden supports-[overflow:clip]:overflow-clip px-6">
+  <div class="w-full h-full max-w-[1072px] mx-auto flex flex-col">
+    <Header />
+    <slot />
+    <Footer />
+  </div>
+</main>

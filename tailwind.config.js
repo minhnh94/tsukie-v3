@@ -1,7 +1,6 @@
 module.exports = {
   content: [
-    './app/**/*.{js,jsx,ts,tsx}',
-    './partials/**/*.{js,jsx,ts,tsx}',
+    './src/**/*.{astro,js,jsx,ts,tsx}',
   ],
   darkMode: 'class',
   theme: {

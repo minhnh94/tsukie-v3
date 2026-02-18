@@ -1,0 +1,103 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Screen from '@/components/Screen.astro';
+import SideNavigation from '@/components/SideNavigation.astro';
+import MainContent from '@/components/MainContent.astro';
+import MiddleArea from '@/components/MiddleArea.astro';
+import RightSidebar from '@/components/RightSidebar.astro';
+import WidgetNewsletter from '@/components/WidgetNewsletter.astro';
+import WidgetSponsor from '@/components/WidgetSponsor.astro';
+import WidgetPosts from '@/components/WidgetPosts.astro';
+import ParagraphFromCms from '@/components/ParagraphFromCms.astro';
+import CommentSection from '@/components/CommentSection.astro';
+import ShareBtnRow from '@/components/ShareBtnRow.astro';
+import readingTime from 'reading-time';
+import {
+  getPagesFromDB,
+  getPageIdBySlug,
+  getPagePropertiesById,
+  getPageContentAsMarkdownById,
+} from '@/lib/contentFetcher.js';
+
+export async function getStaticPaths() {
+  const { pages } = await getPagesFromDB();
+  return pages.map((page) => ({
+    params: { tag: page.tag, post: page.slug },
+  }));
+}
+
+const { tag, post } = Astro.params;
+
+const pageId = await getPageIdBySlug(post);
+if (!pageId) {
+  return Astro.redirect('/404');
+}
+
+const mdString = await getPageContentAsMarkdownById(pageId);
+const readingStats = readingTime(mdString);
+const pageProperties = await getPagePropertiesById(pageId);
+---
+
+<BaseLayout
+  title={pageProperties.title}
+  description={pageProperties.summary}
+  ogImage={pageProperties.thumbnail}
+  ogUrl={`https://tsukie.com/en/${tag}/${post}`}
+  ogType="article"
+>
+  <Screen>
+    <SideNavigation />
+    <MainContent>
+      <div class="grow md:flex space-y-8 md:space-y-0 md:space-x-8 pt-12 md:pt-16 pb-16 md:pb-20">
+        <MiddleArea>
+          <!-- Back -->
+          <div class="mb-3">
+            <a
+              class="inline-flex text-sky-500 rounded-full border border-slate-200 dark:border-slate-800 dark:bg-gradient-to-t dark:from-slate-800 dark:to-slate-800/30"
+              href="/"
+            >
+              <span class="sr-only">Back</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34">
+                <path class="fill-current" d="m16.414 17 3.293 3.293-1.414 1.414L13.586 17l4.707-4.707 1.414 1.414z" />
+              </svg>
+            </a>
+          </div>
+
+          <article>
+            <!-- Post header -->
+            <header>
+              <div class="flex items-center justify-between mb-1">
+                <div class="text-xs text-slate-500 uppercase">
+                  <span class="text-sky-500">&mdash;</span> {pageProperties.date} <span class="text-slate-400 dark:text-slate-600">&middot;</span> {readingStats.text}
+                </div>
+                <ShareBtnRow />
+              </div>
+              <h1 class="h1 font-aspekta mb-4">{pageProperties.title}</h1>
+              <p class="mb-3 text-gray-500 dark:text-gray-400 italic">{pageProperties.summary}</p>
+            </header>
+            <hr class="my-4 border-t border-sky-500" />
+            <ParagraphFromCms content={mdString} />
+          </article>
+
+          <CommentSection />
+        </MiddleArea>
+
+        <RightSidebar>
+          <WidgetNewsletter />
+          <WidgetSponsor
+            imageRotationClass="-rotate-1"
+            title="My latest project"
+            pjName="WallCal"
+            img="/images/wallcal-screenshot.webp"
+            pjDesc="The best sticky calendar on desktop background for macOS"
+            link="https://wallcal.app/"
+          />
+          <div class="space-y-6 sticky top-6">
+            <WidgetPosts />
+            <WidgetPosts chronologically={true} />
+          </div>
+        </RightSidebar>
+      </div>
+    </MainContent>
+  </Screen>
+</BaseLayout>

@@ -1,0 +1,88 @@
+---
+import ArticleItem from '@/components/ArticleItem.astro';
+
+const { items, tags } = Astro.props;
+---
+<section>
+  <h2 class="font-aspekta text-xl font-[650] mb-3">Latest Articles</h2>
+
+  <!-- Filters -->
+  <ul id="tag-filters" class="flex flex-wrap text-sm border-b border-slate-100 dark:border-slate-800">
+    {tags.map((tag: string, index: number) => (
+      <li class="px-3 -mb-px">
+        <a
+          class:list={[
+            'block py-3 capitalize hover:cursor-pointer tag-filter',
+            index === 0
+              ? 'font-medium text-slate-800 dark:text-slate-100 border-b-2 border-sky-500 active-tag'
+              : 'text-slate-500 hover:text-slate-600 dark:text-slate-400 dark:hover:text-slate-300',
+          ]}
+          data-tag={tag}
+        >
+          {tag}
+        </a>
+      </li>
+    ))}
+  </ul>
+
+  <!-- Articles list -->
+  <div id="articles-list">
+    {items.map((item: any, index: number) => (
+      <ArticleItem
+        id={item.id}
+        title={item.title}
+        tag={item.tag}
+        slug={item.slug}
+        image={item.thumbnail}
+        date={item.date}
+        excerpt={item.summary}
+        hidden={index >= 10}
+      />
+    ))}
+  </div>
+</section>
+
+<script>
+  const TAG_LATEST = 'latest';
+  const filters = document.querySelectorAll('.tag-filter');
+  const articles = document.querySelectorAll('[data-article-tag]');
+
+  filters.forEach((filter) => {
+    filter.addEventListener('click', () => {
+      const tag = (filter as HTMLElement).dataset.tag;
+
+      // Update active filter styles
+      filters.forEach((f) => {
+        f.classList.remove('font-medium', 'text-slate-800', 'dark:text-slate-100', 'border-b-2', 'border-sky-500', 'active-tag');
+        f.classList.add('text-slate-500', 'hover:text-slate-600', 'dark:text-slate-400', 'dark:hover:text-slate-300');
+      });
+      filter.classList.add('font-medium', 'text-slate-800', 'dark:text-slate-100', 'border-b-2', 'border-sky-500', 'active-tag');
+      filter.classList.remove('text-slate-500', 'hover:text-slate-600', 'dark:text-slate-400', 'dark:hover:text-slate-300');
+
+      // Filter articles
+      let shown = 0;
+      articles.forEach((article) => {
+        const articleTag = (article as HTMLElement).dataset.articleTag;
+        if (tag === TAG_LATEST || articleTag === tag) {
+          if (shown < 10) {
+            (article as HTMLElement).style.display = '';
+            shown++;
+          } else {
+            (article as HTMLElement).style.display = 'none';
+          }
+        } else {
+          (article as HTMLElement).style.display = 'none';
+        }
+      });
+    });
+  });
+
+  // Handle tag clicks from within articles
+  document.querySelectorAll('[data-tag-click]').forEach((el) => {
+    el.addEventListener('click', () => {
+      const tag = (el as HTMLElement).dataset.tagClick;
+      const filter = document.querySelector(`.tag-filter[data-tag="${tag}"]`);
+      if (filter) (filter as HTMLElement).click();
+    });
+  });
+</script>

@@ -1,0 +1,58 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Screen from '@/components/Screen.astro';
+import SideNavigation from '@/components/SideNavigation.astro';
+import MainContent from '@/components/MainContent.astro';
+import MiddleArea from '@/components/MiddleArea.astro';
+import RightSidebar from '@/components/RightSidebar.astro';
+import WidgetSponsor from '@/components/WidgetSponsor.astro';
+import ParagraphFromCms from '@/components/ParagraphFromCms.astro';
+import CommentSection from '@/components/CommentSection.astro';
+import UnityPlayer from '@/components/UnityPlayer.jsx';
+import { getPageContentAsMarkdownById } from '@/lib/contentFetcher.js';
+
+const content = await getPageContentAsMarkdownById('ced24c15f6f542adb8d4ab3b21c93040');
+---
+
+<BaseLayout
+  title="Endless Defense - A tower defense game from Tsukie"
+  description="A fun and addictive way to kill time right on the web browser. Play now and see how long you can survive!"
+  ogImage="https://tsukie.com/images/endless-defense-bg.jpg"
+  ogUrl="https://tsukie.com/projects/endless-defense"
+  ogType="article"
+>
+  <Screen>
+    <SideNavigation />
+    <MainContent>
+      <div class="grow md:flex space-y-8 md:space-y-0 md:space-x-8 pt-12 md:pt-16 pb-16 md:pb-20">
+        <MiddleArea>
+          <h1 class="h1 font-aspekta mb-4">Endless Defense - A tower defense game</h1>
+          <!-- display alert if mobile screen -->
+          <div class="flex items-center p-4 mb-4 text-sm text-red-800 border border-red-300 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400 dark:border-red-800 lg:hidden" role="alert">
+            <svg class="flex-shrink-0 inline w-4 h-4 mr-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+            </svg>
+            <span class="sr-only">Info</span>
+            <div>Mobile/tablet not supported. Please use desktop/laptop.</div>
+          </div>
+          <!-- display the game itself if desktop screen -->
+          <div class="hidden lg:block">
+            <UnityPlayer client:visible />
+          </div>
+          <ParagraphFromCms content={content} />
+          <CommentSection />
+        </MiddleArea>
+        <RightSidebar>
+          <WidgetSponsor
+            imageRotationClass="rotate-1"
+            title="My latest project"
+            pjName="WallCal"
+            img="/images/wallcal-screenshot.webp"
+            pjDesc="The best sticky calendar on desktop background for macOS"
+            link="https://wallcal.app/"
+          />
+        </RightSidebar>
+      </div>
+    </MainContent>
+  </Screen>
+</BaseLayout>

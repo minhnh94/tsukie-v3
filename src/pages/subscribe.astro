@@ -1,0 +1,77 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Screen from '@/components/Screen.astro';
+import SideNavigation from '@/components/SideNavigation.astro';
+import MainContent from '@/components/MainContent.astro';
+import MiddleArea from '@/components/MiddleArea.astro';
+import RightSidebar from '@/components/RightSidebar.astro';
+import WidgetSponsor from '@/components/WidgetSponsor.astro';
+import SubscribeForm from '@/components/SubscribeForm.astro';
+---
+
+<BaseLayout
+  title="tsukie - tech, soul, and dream"
+  description="Join me on a thrilling journey through coding, life lessons, and indie hacking adventures!"
+  ogUrl="https://tsukie.com/subscribe"
+  ogType="article"
+>
+  <Screen>
+    <SideNavigation />
+    <MainContent>
+      <div class="grow md:flex space-y-8 md:space-y-0 md:space-x-8 pt-12 md:pt-16 pb-16 md:pb-20">
+        <MiddleArea>
+          <div class="space-y-10">
+            <section>
+              <h1 class="h1 font-aspekta mb-5">No spams. Just quality updates ✨</h1>
+              <div class="text-slate-500 dark:text-slate-400 space-y-8">
+                <p class="text-lg">
+                  Join me on a thrilling journey through coding, life lessons, and indie hacking adventures. Subscribe now for exclusive access to:
+                </p>
+                <ul class="space-y-4">
+                  <li class="flex items-start">
+                    <svg class="w-3 h-3 fill-current text-sky-500 mr-3 mt-1.5 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
+                    </svg>
+                    <span>Expert Coding Tips: Level up your programming skills with tried-and-tested techniques, industry best practices, and real-world examples.</span>
+                  </li>
+                  <li class="flex items-start">
+                    <svg class="w-3 h-3 fill-current text-sky-500 mr-3 mt-1.5 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
+                    </svg>
+                    <span>Indie Hacker Insights: Learn the secrets to successfully building and launching profitable side projects, straight from my personal experiences.</span>
+                  </li>
+                  <li class="flex items-start">
+                    <svg class="w-3 h-3 fill-current text-sky-500 mr-3 mt-1.5 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
+                    </svg>
+                    <span>Personal Growth Strategies: Discover practical life hacks and mindset shifts that will boost your productivity, focus, and overall well-being.</span>
+                  </li>
+                  <li class="flex items-start">
+                    <svg class="w-3 h-3 fill-current text-sky-500 mr-3 mt-1.5 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
+                    </svg>
+                    <span>Engaging Community: Connect with a like-minded group of coders, entrepreneurs, and dreamers who are all on the same quest for growth and success.</span>
+                  </li>
+                </ul>
+                <p class="text-lg">Together, let's level up and dive into our exhilarating journey towards success!</p>
+                <div>
+                  <SubscribeForm />
+                </div>
+              </div>
+            </section>
+          </div>
+        </MiddleArea>
+        <RightSidebar>
+          <WidgetSponsor
+            imageRotationClass="rotate-1"
+            title="My latest project"
+            pjName="WallCal"
+            img="/images/wallcal-screenshot.webp"
+            pjDesc="The best sticky calendar on desktop background for macOS"
+            link="https://wallcal.app/"
+          />
+        </RightSidebar>
+      </div>
+    </MainContent>
+  </Screen>
+</BaseLayout>

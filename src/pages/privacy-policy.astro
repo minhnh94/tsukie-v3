@@ -1,0 +1,46 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Screen from '@/components/Screen.astro';
+import SideNavigation from '@/components/SideNavigation.astro';
+import MainContent from '@/components/MainContent.astro';
+import MiddleArea from '@/components/MiddleArea.astro';
+import RightSidebar from '@/components/RightSidebar.astro';
+import WidgetNewsletter from '@/components/WidgetNewsletter.astro';
+import WidgetSponsor from '@/components/WidgetSponsor.astro';
+import ParagraphFromCms from '@/components/ParagraphFromCms.astro';
+import { getPageContentAsMarkdownById } from '@/lib/contentFetcher.js';
+
+const content = await getPageContentAsMarkdownById('85cc3bc73db54b74bd4a804a61705fc4');
+---
+
+<BaseLayout
+  title="Privacy Policy - Tsukie"
+  description="Your privacy is important to us. It is Tsukie's policy to respect your privacy regarding any information we may collect from you across our website, https://tsukie.com, and other sites we own and operate."
+  ogUrl="https://tsukie.com/privacy-policy/"
+  ogType="article"
+>
+  <Screen>
+    <SideNavigation />
+    <MainContent>
+      <div class="grow md:flex space-y-8 md:space-y-0 md:space-x-8 pt-12 md:pt-16 pb-16 md:pb-20">
+        <MiddleArea>
+          <section>
+            <h1 class="h1 font-aspekta mb-5">Privacy Policy</h1>
+            <ParagraphFromCms content={content} />
+          </section>
+        </MiddleArea>
+        <RightSidebar>
+          <WidgetNewsletter />
+          <WidgetSponsor
+            imageRotationClass="-rotate-1"
+            title="My latest project"
+            pjName="WallCal"
+            img="/images/wallcal-screenshot.webp"
+            pjDesc="The best sticky calendar on desktop background for macOS"
+            link="https://wallcal.app/"
+          />
+        </RightSidebar>
+      </div>
+    </MainContent>
+  </Screen>
+</BaseLayout>

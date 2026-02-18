@@ -1,0 +1,26 @@
+---
+import ProjectCard from '@/components/ProjectCard.astro';
+---
+<section>
+  <h2 class="font-aspekta text-xl font-[650] mb-5">Projects</h2>
+  <div class="grid sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 gap-5">
+    <ProjectCard
+      pjName="WallCal"
+      pjDesc="The best sticky calendar on desktop background for macOS"
+      pjImg="https://wallcal.app/my-assets/app-icon.png"
+      pjLink="https://wallcal.app/"
+      bgImg="wallcal-screenshot.webp"
+    />
+    <ProjectCard
+      pjName="Endless Defense"
+      pjDesc="A web-based tower defense game perfect for killing time"
+      pjImg="endless-defense-icon.png"
+      pjLink="/projects/endless-defense"
+      bgImg="endless-defense-bg.jpg"
+    />
+    <ProjectCard
+      pjName="Coming soon..."
+      pjDesc="Our next project is being brewed ;)"
+    />
+  </div>
+</section>

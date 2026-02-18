@@ -1,0 +1,9 @@
+---
+import { renderMarkdown } from '@/lib/markdownRenderer.js';
+
+const { content } = Astro.props;
+const html = await renderMarkdown(content);
+---
+<div class="text-slate-500 dark:text-slate-400 space-y-8 my-4">
+  <div class="react_markdown" set:html={html} />
+</div>

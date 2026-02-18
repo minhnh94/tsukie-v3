@@ -1,0 +1,63 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Screen from '@/components/Screen.astro';
+import SideNavigation from '@/components/SideNavigation.astro';
+import MainContent from '@/components/MainContent.astro';
+import Hero from '@/components/Hero.astro';
+import MiddleArea from '@/components/MiddleArea.astro';
+import RightSidebar from '@/components/RightSidebar.astro';
+import ArticlesList from '@/components/ArticlesList.astro';
+import Projects from '@/components/Projects.astro';
+import WidgetNewsletter from '@/components/WidgetNewsletter.astro';
+import WidgetSponsor from '@/components/WidgetSponsor.astro';
+import { getPagesFromDB } from '@/lib/contentFetcher.js';
+import { TAG_LATEST } from '@/utils/constants.js';
+
+const pageInfo = await getPagesFromDB();
+const items = pageInfo.pages;
+
+const separateByTags = (data) => {
+  const result = {};
+  data.forEach((item) => {
+    const tag = item.tag;
+    if (!result[tag]) result[tag] = [];
+    result[tag].push(item);
+  });
+  return result;
+};
+
+const tags = [TAG_LATEST, ...Object.keys(separateByTags(items)).sort()];
+---
+
+<BaseLayout
+  title="tsukie - tech, soul, and dream"
+  description="Welcome to Tsukie, a blog where coding, life, and my indie hacker journey converge. As a seasoned software programmer, I'm now dabbling into the part-time indie hacker path and sharing my experiences along the way."
+  ogUrl="https://tsukie.com/"
+  ogType="website"
+>
+  <Screen>
+    <SideNavigation />
+    <MainContent>
+      <Hero />
+      <div class="grow md:flex space-y-8 md:space-y-0 md:space-x-8 pb-16 md:pb-20">
+        <MiddleArea>
+          <div class="space-y-10">
+            <ArticlesList items={items} tags={tags} />
+            <Projects />
+          </div>
+        </MiddleArea>
+        <RightSidebar>
+          <WidgetNewsletter />
+          <WidgetSponsor
+            imageRotationClass="-rotate-1"
+            title="My latest project"
+            pjName="WallCal"
+            img="/images/wallcal-screenshot.webp"
+            pjDesc="The best sticky calendar on desktop background for macOS"
+            link="https://wallcal.app/"
+          />
+        </RightSidebar>
+      </div>
+    </MainContent>
+  </Screen>
+</BaseLayout>
