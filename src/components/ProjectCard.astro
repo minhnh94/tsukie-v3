@@ -15,13 +15,14 @@ const { pjName, pjDesc, pjImg, pjLink, bgImg } = Astro.props;
       class="absolute inset-0 w-full h-full object-cover opacity-40"
       src={`/images/${bgImg}`}
       alt={pjName}
+      loading="lazy"
     />
   )}
   <div class="flex flex-col h-full relative">
     <div class="grow">
       {pjImg ? (
         <div class="h-10 w-10 flex items-center justify-center rounded-full mb-2">
-          <img src={pjImg.includes('http') ? pjImg : `/images/${pjImg}`} alt="" />
+          <img src={pjImg.includes('http') ? pjImg : `/images/${pjImg}`} alt={pjName} loading="lazy" />
         </div>
       ) : (
         <div class="h-10 w-10 flex items-center justify-center border border-slate-200 dark:border-slate-700 rounded-full mb-2">

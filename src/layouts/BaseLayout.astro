@@ -7,15 +7,38 @@ const {
   ogImage = 'https://tsukie.com/images/about.jpg',
   ogUrl = 'https://tsukie.com/',
   ogType = 'website',
+  jsonLd,
 } = Astro.props;
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "tsukie",
+  "url": "https://tsukie.com",
+  "description": "A blog where coding, life, and my indie hacker journey converge.",
+  "author": {
+    "@type": "Person",
+    "name": "Minh Nguyen",
+  },
+};
 ---
 
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)" />
     <title>{title}</title>
     <meta name="description" content={description} />
+    <link rel="canonical" href={ogUrl} />
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/rss+xml" title="tsukie" href="/rss.xml" />
+
+    <!-- Font preloads -->
+    <link rel="preload" href="/fonts/Aspekta-500.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/Aspekta-650.woff2" as="font" type="font/woff2" crossorigin />
 
     <!-- Open Graph -->
     <meta property="og:type" content={ogType} />
@@ -30,6 +53,10 @@ const {
     <meta name="twitter:description" content={description} />
     <meta name="twitter:creator" content="@minhnh94" />
     <meta name="twitter:image" content={ogImage} />
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
+    {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
 
     <!-- Plausible Analytics -->
     <script defer data-domain="tsukie.com" src="https://plausible.tsukie.com/js/script.outbound-links.tagged-events.js"></script>

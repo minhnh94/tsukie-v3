@@ -9,6 +9,8 @@
   },
   "dependencies": {
     "@astrojs/react": "^4.2.0",
+    "@astrojs/rss": "^4.0.15",
+    "@astrojs/sitemap": "^3.7.0",
     "@astrojs/tailwind": "^6.0.2",
     "@notionhq/client": "^2.2.3",
     "@tailwindcss/forms": "^0.5.3",

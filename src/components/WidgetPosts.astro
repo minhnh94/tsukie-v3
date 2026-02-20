@@ -5,7 +5,7 @@ const { chronologically = false } = Astro.props;
 const suggestedPosts = await getPagesForSidebar(3, chronologically);
 ---
 <div class="rounded-lg border border-slate-200 dark:border-slate-800 dark:bg-gradient-to-t dark:from-slate-800 dark:to-slate-800/30 odd:rotate-1 even:-rotate-1 p-5">
-  <div class="font-aspekta font-[650] mb-3">{chronologically ? 'Latest posts' : 'Popular posts'}</div>
+  <h3 class="font-aspekta font-[650] mb-3">{chronologically ? 'Latest posts' : 'Popular posts'}</h3>
   <ul class="space-y-3">
     {suggestedPosts.map((post: any) => (
       <li class="inline-flex">
